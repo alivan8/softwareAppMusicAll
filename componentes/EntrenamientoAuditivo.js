@@ -28,7 +28,7 @@ import { Container, Header, Title, Content,  Left, Right, Body, Icon,Button } fr
   }
     render() {
       const {navigation}=this.props;
-      console.log(this.props);
+      console.log('AUDITIVO'+JSON.stringify(this.props));
         return (
             <Container>
             <Header style={{backgroundColor:'#71c418'}}>

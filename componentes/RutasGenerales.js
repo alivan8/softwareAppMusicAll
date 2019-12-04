@@ -86,4 +86,5 @@ export const RutasGenerales = createMaterialBottomTabNavigator({
 
 
 
+
 );
