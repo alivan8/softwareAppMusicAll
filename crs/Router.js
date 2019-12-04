@@ -23,6 +23,7 @@ import CarEdit from './screens/CarEdit';
 import AuthLoadingScreen from './screens/AuthLoadingScreen';
 import colors from './styles/colors';
 
+import {RutasGenerales} from '../componentes/RutasGenerales';
 
 
 const MainScreen = createStackNavigator(
@@ -61,7 +62,7 @@ const MainScreen = createStackNavigator(
 const AppNavigator = createSwitchNavigator(
   {
     AuthLoading: AuthLoadingScreen,
-    App: MainScreen,
+    App: RutasGenerales,
     Auth: createStackNavigator(
     {
       Login: {
