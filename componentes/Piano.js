@@ -154,8 +154,11 @@ export default class Piano extends Component {
             <View
               onTouchStart={() => this.stroke("Cs")}
               onTouchEnd={() => this.stop("Cs")}
-              style={{ backgroundColor: this.state.colorCs, height: 100, width: 32, borderTopWidth: 1, borderLeftWidth: 1,}} >
-            </View >
+              style={{ backgroundColor: this.state.colorCs, height: 100, width: 32, borderTopWidth: 1, borderLeftWidth: 1,}} 
+              >
+              
+                
+              </View >
             <View
               style={{ backgroundColor: "white", height: 100, width: 16, borderTopWidth: 1, }} >
             </View >
