@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {  View,Image ,ScrollView} from 'react-native'
+import {  View,Image ,ScrollView,  TouchableOpacity,} from 'react-native'
 import { Container, Header, Content, Card, CardItem, Thumbnail, Text, Button, Icon, Left, Body, Right } from 'native-base';
 class Diccionario extends Component {
     render() {
@@ -8,56 +8,116 @@ class Diccionario extends Component {
         
         <Content>
         <ScrollView >
+
           <Card>
+            <View style={{flexDirection:'column'}}>
+            
             <CardItem>
               <Left>
-                <Thumbnail source={{uri: 'https://i.ytimg.com/vi/WRGeLbWOc1Q/maxresdefault.jpg'}} />
+                
                 <Body>
-                  <Text>NativeBase</Text>
-                  <Text note>GeekyAnts</Text>
+                <Text style={{fontWeight: 'bold',fontSize:20}}>Unisono Justo</Text>
+                 
                 </Body>
               </Left>
             </CardItem>
-            <CardItem cardBody>
-              <Image source={{uri: 'https://i.ytimg.com/vi/WRGeLbWOc1Q/maxresdefault.jpg'}} style={{height: 200, width: null, flex: 1}}/>
+            <CardItem cardBody >
+            <Left>
+                
+                <Body>
+                <Text style={{color:'#ccb7bd'}}>
+                  P1
+                  Tonos:0 (0 semitonos)
+                  Consonancia Perfecta
+                  </Text>
+                </Body>
+              </Left>
+              <Image source={{uri: 'https://i.ytimg.com/vi/WRGeLbWOc1Q/maxresdefault.jpg'}} style={{ marginTop:-10, height: 150, width: null, flex: 1 ,marginRight:10}}/>
             </CardItem>
             <CardItem>
-             
+              <View style={{flexDirection:'row'}}>
+            <TouchableOpacity
+                    //style={styles.button}
+                    onPress={() => {
+                      //navigation.navigate('tabAuditivo');
+                    }}
+                  >
+                     <Text style={{fontSize:13,color:'#17e65c'}}>ASCENDENTE </Text>
+             </TouchableOpacity>
+                  <TouchableOpacity
+                    //style={styles.button}
+                    onPress={() => {
+                      //navigation.navigate('tabAuditivo');
+                    }}
+                  >
+                     <Text style={{fontSize:13,paddingLeft:15,color:'#17e65c'}}> DESCENDENTE </Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    //style={styles.button}
+                    onPress={() => {
+                      //navigation.navigate('tabAuditivo');
+                    }}
+                  >
+                    <Text style={{fontSize:13,paddingLeft:15,color:'#17e65c'}}> ARMONICO </Text>
+                  </TouchableOpacity>
+                  </View>
             </CardItem>
+            </View>
           </Card>
           <Card>
+            <View style={{flexDirection:'column'}}>
+            
             <CardItem>
               <Left>
-                <Thumbnail source={{uri: 'https://i.ytimg.com/vi/WRGeLbWOc1Q/maxresdefault.jpg'}} />
+                
                 <Body>
-                  <Text>NativeBase</Text>
-                  <Text note>GeekyAnts</Text>
+                <Text style={{fontWeight: 'bold',fontSize:20}}>Unisono Justo</Text>
+                 
                 </Body>
               </Left>
             </CardItem>
-            <CardItem cardBody>
-              <Image source={{uri: 'https://i.ytimg.com/vi/WRGeLbWOc1Q/maxresdefault.jpg'}} style={{height: 200, width: null, flex: 1}}/>
-            </CardItem>
-            <CardItem>
-             
-            </CardItem>
-          </Card>
-          <Card>
-            <CardItem>
-              <Left>
-                <Thumbnail source={{uri: 'https://i.ytimg.com/vi/WRGeLbWOc1Q/maxresdefault.jpg'}} />
+            <CardItem cardBody >
+            <Left>
+                
                 <Body>
-                  <Text>NativeBase</Text>
-                  <Text note>GeekyAnts</Text>
+                <Text style={{color:'#ccb7bd'}}>
+                  P1
+                  Tonos:0 (0 semitonos)
+                  Consonancia Perfecta
+                  </Text>
                 </Body>
               </Left>
-            </CardItem>
-            <CardItem cardBody>
-              <Image source={{uri: 'https://i.ytimg.com/vi/WRGeLbWOc1Q/maxresdefault.jpg'}} style={{height: 200, width: null, flex: 1}}/>
+              <Image source={{uri: 'https://i.ytimg.com/vi/WRGeLbWOc1Q/maxresdefault.jpg'}} style={{ marginTop:-10, height: 150, width: null, flex: 1 ,marginRight:10}}/>
             </CardItem>
             <CardItem>
-             
+              <View style={{flexDirection:'row'}}>
+            <TouchableOpacity
+                    //style={styles.button}
+                    onPress={() => {
+                      //navigation.navigate('tabAuditivo');
+                    }}
+                  >
+                     <Text style={{fontSize:13,color:'#17e65c'}}>ASCENDENTE </Text>
+             </TouchableOpacity>
+                  <TouchableOpacity
+                    //style={styles.button}
+                    onPress={() => {
+                      //navigation.navigate('tabAuditivo');
+                    }}
+                  >
+                     <Text style={{fontSize:13,paddingLeft:15,color:'#17e65c'}}> DESCENDENTE </Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    //style={styles.button}
+                    onPress={() => {
+                      //navigation.navigate('tabAuditivo');
+                    }}
+                  >
+                    <Text style={{fontSize:13,paddingLeft:15,color:'#17e65c'}}> ARMONICO </Text>
+                  </TouchableOpacity>
+                  </View>
             </CardItem>
+            </View>
           </Card>
           </ScrollView>
         </Content>
