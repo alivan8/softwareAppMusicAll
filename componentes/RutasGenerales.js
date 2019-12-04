@@ -75,7 +75,7 @@ export const RutasGenerales = createMaterialBottomTabNavigator({
      // barStyle={ { paddingBottom: 10 }},
       tabBarIcon:({tintColor})=>(
         <View>
-       <Icon name="ei-play" color={tintColor} size={25}/>  
+       <Icon name="home" color={tintColor} size={25}/>  
        </View>
         ),
       

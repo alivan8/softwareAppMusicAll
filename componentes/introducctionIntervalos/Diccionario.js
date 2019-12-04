@@ -32,7 +32,7 @@ class Diccionario extends Component {
                   </Text>
                 </Body>
               </Left>
-              <Image source={{uri: 'https://i.ytimg.com/vi/WRGeLbWOc1Q/maxresdefault.jpg'}} style={{ marginTop:-10, height: 150, width: null, flex: 1 ,marginRight:10}}/>
+              <Image source={{uri: 'unisonojusto'}} style={{ marginTop:-50, height: 150, width: null, flex: 1 ,marginRight:10}}/>
             </CardItem>
             <CardItem>
               <View style={{flexDirection:'row'}}>
@@ -42,7 +42,7 @@ class Diccionario extends Component {
                       //navigation.navigate('tabAuditivo');
                     }}
                   >
-                     <Text style={{fontSize:13,color:'#17e65c'}}>ASCENDENTE </Text>
+                     <Text style={{fontWeight: 'bold',fontSize:13,color:'#23a34f'}}>ASCENDENTE </Text>
              </TouchableOpacity>
                   <TouchableOpacity
                     //style={styles.button}
@@ -50,7 +50,7 @@ class Diccionario extends Component {
                       //navigation.navigate('tabAuditivo');
                     }}
                   >
-                     <Text style={{fontSize:13,paddingLeft:15,color:'#17e65c'}}> DESCENDENTE </Text>
+                     <Text style={{fontWeight: 'bold',fontSize:13,paddingLeft:15,color:'#23a34f'}}> DESCENDENTE </Text>
                   </TouchableOpacity>
                   <TouchableOpacity
                     //style={styles.button}
@@ -58,7 +58,7 @@ class Diccionario extends Component {
                       //navigation.navigate('tabAuditivo');
                     }}
                   >
-                    <Text style={{fontSize:13,paddingLeft:15,color:'#17e65c'}}> ARMONICO </Text>
+                    <Text style={{fontWeight: 'bold',fontSize:13,paddingLeft:15,color:'#23a34f'}}> ARMONICO </Text>
                   </TouchableOpacity>
                   </View>
             </CardItem>
@@ -87,7 +87,7 @@ class Diccionario extends Component {
                   </Text>
                 </Body>
               </Left>
-              <Image source={{uri: 'https://i.ytimg.com/vi/WRGeLbWOc1Q/maxresdefault.jpg'}} style={{ marginTop:-10, height: 150, width: null, flex: 1 ,marginRight:10}}/>
+              <Image source={{uri: 'segundamenor'}} style={{ marginTop:-50, height: 150, width: null, flex: 1 ,marginRight:10}}/>
             </CardItem>
             <CardItem>
               <View style={{flexDirection:'row'}}>
@@ -97,7 +97,7 @@ class Diccionario extends Component {
                       //navigation.navigate('tabAuditivo');
                     }}
                   >
-                     <Text style={{fontSize:13,color:'#17e65c'}}>ASCENDENTE </Text>
+                     <Text style={{fontWeight: 'bold',fontSize:13,color:'#23a34f'}}>ASCENDENTE </Text>
              </TouchableOpacity>
                   <TouchableOpacity
                     //style={styles.button}
@@ -105,7 +105,7 @@ class Diccionario extends Component {
                       //navigation.navigate('tabAuditivo');
                     }}
                   >
-                     <Text style={{fontSize:13,paddingLeft:15,color:'#17e65c'}}> DESCENDENTE </Text>
+                     <Text style={{fontWeight: 'bold',fontSize:13,paddingLeft:15,color:'#23a34f'}}> DESCENDENTE </Text>
                   </TouchableOpacity>
                   <TouchableOpacity
                     //style={styles.button}
@@ -113,13 +113,68 @@ class Diccionario extends Component {
                       //navigation.navigate('tabAuditivo');
                     }}
                   >
-                    <Text style={{fontSize:13,paddingLeft:15,color:'#17e65c'}}> ARMONICO </Text>
+                    <Text style={{fontWeight: 'bold',fontSize:13,paddingLeft:15,color:'#23a34f'}}> ARMONICO </Text>
                   </TouchableOpacity>
                   </View>
             </CardItem>
             </View>
           </Card>
-          </ScrollView>
+          <Card>
+            <View style={{flexDirection:'column'}}>
+            
+            <CardItem>
+              <Left>
+                
+                <Body>
+                <Text style={{fontWeight: 'bold',fontSize:20}}>Unisono Justo</Text>
+                 
+                </Body>
+              </Left>
+            </CardItem>
+            <CardItem cardBody >
+            <Left>
+                
+                <Body>
+                <Text style={{color:'#ccb7bd'}}>
+                  P1
+                  Tonos:0 (0 semitonos)
+                  Consonancia Perfecta
+                  </Text>
+                </Body>
+              </Left>
+              <Image source={{uri: 'unisonojusto'}} style={{ marginTop:-50, height: 150, width: null, flex: 1 ,marginRight:10}}/>
+            </CardItem>
+            <CardItem>
+              <View style={{flexDirection:'row'}}>
+            <TouchableOpacity
+                    //style={styles.button}
+                    onPress={() => {
+                      //navigation.navigate('tabAuditivo');
+                    }}
+                  >
+                     <Text style={{fontWeight: 'bold',fontSize:13,color:'#23a34f'}}>ASCENDENTE </Text>
+             </TouchableOpacity>
+                  <TouchableOpacity
+                    //style={styles.button}
+                    onPress={() => {
+                      //navigation.navigate('tabAuditivo');
+                    }}
+                  >
+                     <Text style={{fontWeight: 'bold',fontSize:13,paddingLeft:15,color:'#23a34f'}}> DESCENDENTE </Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    //style={styles.button}
+                    onPress={() => {
+                      //navigation.navigate('tabAuditivo');
+                    }}
+                  >
+                    <Text style={{fontWeight: 'bold',fontSize:13,paddingLeft:15,color:'#23a34f'}}> ARMONICO </Text>
+                  </TouchableOpacity>
+                  </View>
+            </CardItem>
+            </View>
+          </Card>
+         </ScrollView>
         </Content>
       </Container>
         )
