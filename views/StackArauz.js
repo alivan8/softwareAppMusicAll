@@ -9,20 +9,20 @@ import { createStackNavigator } from 'react-navigation-stack';
 
 // importando las demás vistas
 
-import Welcome from '../views/Welcome';
-import PianoRollDemo from '../views/PianoRollDemo';
-import GuitarNeckDemo from '../views/GuitarNeckDemo';
-import ListaTemasPractica from '../views/ListaTemasPractica';
-import VerTemaPractica from '../views/VerTemaPractica';
-import ListaCursos from '../views/curso/ListaCursos';
-import Login from '../views/Login';
-import SignUp from '../views/SignUp';
+import Welcome from './Welcome';
+import PianoRollDemo from './PianoRollDemo';
+import GuitarNeckDemo from './GuitarNeckDemo';
+import ListaTemasPractica from './ListaTemasPractica';
+import VerTemaPractica from './VerTemaPractica';
+import ListaCursos from './curso/ListaCursos';
+import Login from './Login';
+import SignUp from './SignUp';
 
 // cursos
-import ListaCardsCursos from '../views/curso/ListaCardsCursos';
-import TemarioCurso from '../views/curso/TemarioCurso';
-import VerTema from '../views/curso/VerTema';
-import NavegadorTema from '../views/curso/NavegadorTema';
+import ListaCardsCursos from './curso/ListaCardsCursos';
+import TemarioCurso from './curso/TemarioCurso';
+import VerTema from './curso/VerTema';
+import NavegadorTema from './curso/NavegadorTema';
 
 const navRouteMap = {
   Welcome: {
@@ -73,11 +73,6 @@ const navOptions = {
   initialScreen: 'Welcome'
 };
 
-const StackNavigator = createStackNavigator(navRouteMap, navOptions);
-const AppContainer = createAppContainer(StackNavigator);
+export const StackArauz = createStackNavigator(navRouteMap, navOptions);
 
-export default class AppArauz extends Component {
-  render() {
-    return <AppContainer/>
-  }
-}
+

@@ -7,6 +7,7 @@ import {StackEjercicios} from './StackEjercicios';
 import {StackPerfil} from './StackPerfil';
 import{Image,View} from 'react-native';
 import { MaterialCommunityIcons } from 'react-native-vector-icons';
+import {StackArauz} from '../views/StackArauz';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
 //import Icon from 'react-native-vector-icons/Ionicons';  
@@ -16,6 +17,22 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 //const Search = createAppContainer(StackSearch);
 
 export const RutasGenerales = createMaterialBottomTabNavigator({
+  StackArauz: {
+    screen: StackArauz,
+    navigationOptions:{
+      headerTintColor: "#fff",
+      tabBarLabel:'AUDITIVOS',
+      shifting : 'true',
+      tabBarColor:'#71c418',
+      activeColor: '#fff',
+      inactiveColor: '#1e9b1e',
+     // tabBarIcon: ({ color, size }) => (
+       // <MaterialCommunityIcons name="home" color={color} size={size} />
+      //),
+   },
+  },
+  
+  
   EntrenamientoAuditivo: {
     screen: StackEntrenamientoAuditivo,
     navigationOptions:{
