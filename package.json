@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@react-native-community/async-storage": "^1.6.3",
+    "@react-native-community/audio-toolkit": "^2.0.2",
     "colorsys": "^1.0.22",
     "native-base": "^2.13.8",
     "react": "16.9.0",

@@ -27,6 +27,7 @@ export default class ListaTemasPractica extends Component {
   }
 
   render() {
+    console.log('ListaTemaPractica'+JSON.stringify(this.props));
     return (
       <View style={styles.container}>
         

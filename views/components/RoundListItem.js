@@ -17,12 +17,15 @@ export default class RoundListItem extends Component {
   // recordatorio: los métodos de una clase en JS no necesitan
   // llevar la keyword "function"
   render() {
+    console.log('Redondo'+JSON.stringify(this.props));
     return (
       <View style={styles.itemContainer}>
       
         <View style={styles.backgroundCircle}>
 
-          <TouchableOpacity style={styles.itemIconView} onPress={ () => {this.scream()}}>
+          <TouchableOpacity 
+          style={styles.itemIconView} 
+          onPress={ () => {this.scream()}}>
             <Image source={{ uri: 'music_study' }} style={styles.squaredImage75} />
           </TouchableOpacity>
         

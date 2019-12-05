@@ -23,7 +23,7 @@ export const RutasGenerales = createMaterialBottomTabNavigator({
       headerTintColor: "#fff",
       tabBarLabel:'AUDITIVOS',
       shifting : 'true',
-      tabBarColor:'#71c418',
+      tabBarColor:'#0065ff',
       activeColor: '#fff',
       inactiveColor: '#1e9b1e',
      // tabBarIcon: ({ color, size }) => (
@@ -39,7 +39,7 @@ export const RutasGenerales = createMaterialBottomTabNavigator({
       headerTintColor: "#fff",
       tabBarLabel:'AUDITIVOS',
       shifting : 'true',
-      tabBarColor:'#71c418',
+      tabBarColor:'#0065ff',
       activeColor: '#fff',
       inactiveColor: '#1e9b1e',
      // tabBarIcon: ({ color, size }) => (
@@ -57,7 +57,7 @@ export const RutasGenerales = createMaterialBottomTabNavigator({
        shifting:true,
        labeled:true,
        inactiveColor: '#1e9b1e',
-       tabBarColor:'#d9113c',
+       tabBarColor:'#0065ff',
        tabBarIcon:({tintColor})=>(
          <View>
         <Icon name="home" color={tintColor} size={25}/>  
@@ -73,7 +73,7 @@ export const RutasGenerales = createMaterialBottomTabNavigator({
       //tabBarBadge:'string',
       activeColor: '#fff',
       inactiveColor: '#1e9b1e',
-      tabBarColor:'#188bc4',
+      tabBarColor:'#0065ff',
       tabBarIcon:({tintColor})=>(
         <View>
        <Icon name="home" color={tintColor} size={25}/>  
@@ -88,7 +88,7 @@ export const RutasGenerales = createMaterialBottomTabNavigator({
       activeColor: '#fff',
       inactiveColor: '#1e9b1e',
       tabBarLabel:'PERFIL',
-      tabBarColor:'#c428e0',
+      tabBarColor:'#0065ff',
      // barStyle={ { paddingBottom: 10 }},
       tabBarIcon:({tintColor})=>(
         <View>

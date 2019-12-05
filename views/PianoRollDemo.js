@@ -3,6 +3,7 @@ import {
   View,
   StyleSheet
 } from 'react-native';
+
 import PianoRoll from './components/PianoRoll';
 
 export default class PianoRollDemo extends Component {

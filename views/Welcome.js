@@ -5,7 +5,8 @@ import {
   StyleSheet,
   StatusBar,
   Image,
-  Button
+  Button,
+  ScrollView 
 } from 'react-native';
 
 function Separator() {
@@ -27,11 +28,12 @@ export default class Welcome extends Component {
 
   render() {
     return (
+      <ScrollView >
       <View style={styles.container}>
         <StatusBar backgroundColor='darkblue'/>
         <Text style={styles.textoBienvenida}>Bienvenido a MusiClass!</Text>
         <Image source={{ uri: 'music_study' }} style={styles.image}/>
-
+       
         <View style={{width: '90%'}}>
           <Separator/>
           <Button
@@ -57,14 +59,15 @@ export default class Welcome extends Component {
               this.props.navigation.navigate('ListaTemasPractica');
             }}
           />
-          <Separator/>
-          <Button
+         {/**<Separator/>  */}
+         
+        {/**<Button
             title='Lista de Cursos (FlatList)'
             color='skyblue'
             onPress={() => {
               this.props.navigation.navigate('ListaCursos');
             }}
-          />
+          />   */} 
           <Separator/>
           <Button
             title='Lista de Cursos (Card)'
@@ -75,9 +78,11 @@ export default class Welcome extends Component {
           />
           <Separator/>
         </View>
-
+      
       </View>
+      </ScrollView>  
     );
+    
   }
 
 } // end of HelloWordApp class
