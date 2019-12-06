@@ -9,7 +9,9 @@ import{Image,View} from 'react-native';
 import { MaterialCommunityIcons } from 'react-native-vector-icons';
 import {StackArauz} from '../views/StackArauz';
 
+//import Icon from 'react-native-vector-icons/FontAwesome';
 import Icon from 'react-native-vector-icons/FontAwesome';
+
 //import Icon from 'react-native-vector-icons/Ionicons';  
 
 //const Home = createAppContainer(StackHome);
@@ -26,29 +28,14 @@ export const RutasGenerales = createMaterialBottomTabNavigator({
       tabBarColor:'#0065ff',
       activeColor: '#fff',
       inactiveColor: '#1e9b1e',
-     // tabBarIcon: ({ color, size }) => (
-       // <MaterialCommunityIcons name="home" color={color} size={size} />
-      //),
+      tabBarIcon:({tintColor})=>(
+        <View>
+       <Icon name="home" color='white' size={25}/>  
+       </View>)
    },
   },
   
-  
-  EntrenamientoAuditivo: {
-    screen: StackEntrenamientoAuditivo,
-    navigationOptions:{
-      headerTintColor: "#fff",
-      tabBarLabel:'AUDITIVOS',
-      shifting : 'true',
-      tabBarColor:'#0065ff',
-      activeColor: '#fff',
-      inactiveColor: '#1e9b1e',
-     // tabBarIcon: ({ color, size }) => (
-       // <MaterialCommunityIcons name="home" color={color} size={size} />
-      //),
-   },
-  },
-  
-  EntrenamientoRitmo: {
+ /* EntrenamientoRitmo: {
     screen: StackEntrenamientoRitmo,
     navigationOptions:{
       tabBarLabel:'RITMO',
@@ -60,11 +47,11 @@ export const RutasGenerales = createMaterialBottomTabNavigator({
        tabBarColor:'#0065ff',
        tabBarIcon:({tintColor})=>(
          <View>
-        <Icon name="home" color={tintColor} size={25}/>  
+        <Icon name="customer-service" color='white' size={25}/>  
         </View>
     ),
     },
-  },
+  },*/
   Ejercicio: {
     screen: StackEjercicios,
     navigationOptions:{
@@ -76,7 +63,8 @@ export const RutasGenerales = createMaterialBottomTabNavigator({
       tabBarColor:'#0065ff',
       tabBarIcon:({tintColor})=>(
         <View>
-       <Icon name="home" color={tintColor} size={25}/>  
+      <Icon name='trophy' color='white' size={25}/>  
+      
        </View>
              ),
    },
@@ -92,7 +80,7 @@ export const RutasGenerales = createMaterialBottomTabNavigator({
      // barStyle={ { paddingBottom: 10 }},
       tabBarIcon:({tintColor})=>(
         <View>
-       <Icon name="home" color={tintColor} size={25}/>  
+       <Icon name="user" color='white' size={25}/>  
        </View>
         ),
       

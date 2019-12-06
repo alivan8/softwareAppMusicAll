@@ -6,6 +6,7 @@
 import React, { Component } from 'react';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
+import {tabAuditivo} from '../componentes/tabAuditivo';
 
 // importando las demás vistas
 
@@ -60,7 +61,10 @@ const navRouteMap = {
   },
   NavegadorTema: {
     screen: NavegadorTema
-  }
+  },
+  tabAuditivo:{
+    screen:tabAuditivo,
+}
 };
 
 const navOptions = {

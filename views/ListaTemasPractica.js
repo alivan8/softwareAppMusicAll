@@ -3,7 +3,8 @@ import {
   View,
   ScrollView,
   StyleSheet,
-  StatusBar
+  StatusBar,
+  TouchableOpacity
 } from 'react-native';
 import RoundListItem from './components/RoundListItem';
 
@@ -28,6 +29,9 @@ export default class ListaTemasPractica extends Component {
 
   render() {
     console.log('ListaTemaPractica'+JSON.stringify(this.props));
+    const {navigation} = this.props;
+    
+    console.log(navigation);
     return (
       <View style={styles.container}>
         
@@ -36,11 +40,23 @@ export default class ListaTemasPractica extends Component {
           <ScrollView>
             <View style={{ flex: 1, flexDirection: "column", alignItems: "center" }}>
               <View style={{flex: 1, flexDirection: "row", alignItems: "center"}}>
-                <RoundListItem title="Tema1" descript=""/>  
+                <TouchableOpacity 
+                style={styles.itemIconView} 
+                onPress={ () => {navigation.navigate('tabAuditivo')}}>
+                <RoundListItem title="Tema1" descript="" /> 
+                </TouchableOpacity> 
               </View>
               <View style={{flex: 1, flexDirection: "row", alignItems: "center"}}>
+              <TouchableOpacity 
+                style={styles.itemIconView} 
+                onPress={ () => {navigation.navigate('tabAuditivo')}}>
                 <RoundListItem title="Tema 2" descript=""/>  
+                </TouchableOpacity> 
+                <TouchableOpacity 
+                style={styles.itemIconView} 
+                onPress={ () => {navigation.navigate('tabAuditivo')}}>
                 <RoundListItem title="Tema 3" descript=""/>
+                </TouchableOpacity> 
               </View>
               <View style={{flex: 1, flexDirection: "row", alignItems: "center"}}>
                 <RoundListItem title="Tema 4" descript=""/>
@@ -65,5 +81,13 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'flex-start',
     backgroundColor: '#FCFCFC',
-  }
+  },
+
+  itemIconView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: 'black',
+  },
 });

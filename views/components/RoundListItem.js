@@ -18,17 +18,12 @@ export default class RoundListItem extends Component {
   // llevar la keyword "function"
   render() {
     console.log('Redondo'+JSON.stringify(this.props));
+    console.log('varProps'+JSON.stringify(this.props.varProps));
     return (
       <View style={styles.itemContainer}>
       
         <View style={styles.backgroundCircle}>
-
-          <TouchableOpacity 
-          style={styles.itemIconView} 
-          onPress={ () => {this.scream()}}>
             <Image source={{ uri: 'music_study' }} style={styles.squaredImage75} />
-          </TouchableOpacity>
-        
         </View>
 
         <View style={styles.itemTextView}>

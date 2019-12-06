@@ -30,15 +30,15 @@ export default class Welcome extends Component {
     return (
       <ScrollView >
       <View style={styles.container}>
-        <StatusBar backgroundColor='darkblue'/>
+        <StatusBar backgroundColor='#000bdf'/>
         <Text style={styles.textoBienvenida}>Bienvenido a MusiClass!</Text>
-        <Image source={{ uri: 'music_study' }} style={styles.image}/>
+       
        
         <View style={{width: '90%'}}>
           <Separator/>
           <Button
             title='PianoRoll'
-            color='blue'
+            color='#000bdf'
             onPress={() => {
               this.props.navigation.navigate('PianoRollDemo');
             }}
@@ -46,7 +46,7 @@ export default class Welcome extends Component {
           <Separator/>
           <Button
             title='GuitarNeck'
-            color='steelblue'
+            color='#df000b'
             onPress={() => {
               this.props.navigation.navigate('GuitarNeckDemo');
             }}
@@ -54,7 +54,7 @@ export default class Welcome extends Component {
           <Separator/>
           <Button
             title='Lista de Temas de Práctica (ScrollView)'
-            color='skyblue'
+            color='#dfd300'
             onPress={() => {
               this.props.navigation.navigate('ListaTemasPractica');
             }}
@@ -71,7 +71,7 @@ export default class Welcome extends Component {
           <Separator/>
           <Button
             title='Lista de Cursos (Card)'
-            color='limegreen'
+            color='#1d5c34'
             onPress={() => {
               this.props.navigation.navigate('ListaCardsCursos');
             }}
@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#FCFCFC',
+    backgroundColor: '#ffffff',
   },
   image: {
     height: 150,
