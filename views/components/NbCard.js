@@ -20,7 +20,7 @@ export default class NbCard extends Component {
     // const height = item.height / factor;
 
     return (
-      <TouchableOpacity onPress={this.props.onPress}>
+      <TouchableOpacity onPress={this.props.onPress} activeOpacity={0.5}>
         <Card style={{ flex: 0 }}>
           <CardItem>
             <Left>

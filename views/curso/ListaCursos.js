@@ -1,13 +1,28 @@
 import React, { Component } from 'react';
 import {
-  Text,
   View,
   StyleSheet,
-  FlatList
+  Text,
+  FlatList,
+  Alert,
+  ActivityIndicator,
+  ToastAndroid
 } from 'react-native';
-import ListItem from '../components/ListItem';
+import NbCard from '../components/NbCard';
 
-export default class ListaCuros extends Component {
+function Separator() {
+  return (
+    <View
+      style={{
+        marginVertical: 8,
+        borderBottomColor: 'silver',
+        borderBottomWidth: StyleSheet.hairlineWidth,
+      }}
+    />
+  );
+}
+
+export default class ListaCursos extends Component {
 
   // opciones para personalizar la navegación (ej: titulo en ActionBar)
   static navigationOptions = {
@@ -19,47 +34,101 @@ export default class ListaCuros extends Component {
 
     this.state = {
       cursos: [
-        { title: 'Curso 1', descript: 'Dia del full blast, let it go.' },
-        { title: 'Curso 2', descript: 'Dia del alargue, keep going.' },
-        { title: 'Curso 3', descript: 'Dia del aguante, dont pussy out.' },
-        { title: 'Curso 4', descript: 'Dia del sufrimiento, get thru it.' },
-        { title: 'Curso 5', descript: 'Dia del cuestionamiento, is this for me?.' },
-        { title: 'Curso 6', descript: 'Dia de la determinación, go for it.' },
-        { title: 'Curso 7', descript: 'Dia de la persistencia, keep at it.' },
-        { title: 'Curso 8', descript: 'Dia del honor, you got it, you own it.' },
+        /* {
+          id: 1,
+          title:
+          'Curso PlaceHolder',
+          descript: 'Este es un curso de relleno a mostrarse cuando no se ha cargado la lista de cursos desde la red.'
+        }, */
       ]
     };
+
+    this.componentDidMount = () => {
+      fetch(`https://sismusic.herokuapp.com/api/lista/cursos`)
+        .then((rawResponse) => rawResponse.json()).then((response) => {
+          if (response.data !== undefined) {
+            /*  obtener los datos en response.cursos */
+
+            let cursosCargados = [];
+            // Alert.alert(
+            //   'Respuesta del servidor:',
+            //   JSON.stringify(response.cursos)
+            // );
+
+
+            response.data.forEach((item) => {
+              // empujar cada uno de los cursos recibidos al array de cursosCargados
+              cursosCargados.push({
+                id: item.id,
+                title: item.nombre_curso,
+                descript: item.descripcion
+              });
+              // console.log('Añadido curso: ' + cursosCargados[cursosCargados.length - 1]);
+            });
+
+            this.setState({ cursos: cursosCargados });
+            ToastAndroid.show(
+              `Se ha cargado ${cursosCargados.length} cursos`,
+              ToastAndroid.LONG
+            );
+
+          } else {
+            // manejar el caso en que procesar la request ha fallado
+            Alert.alert(
+              'Error al procesar la respuesta',
+              `Probablemente el servidor se encuentre experimentando problemas`
+            );
+          }
+        }).catch((reason) => {
+          Alert.alert(
+            'Error',
+            'Error al obtener la lista de cursos. Quizás se trate de un problema de red.\n\n'
+            + 'Por favor, intente de nuevo más tarde.'
+          );
+          console.warn(reason);
+        });
+    }
+
+
   }
 
   render() {
     return (
       <View style={styles.container}>
-        <Text>Lista de Cursos</Text>
-        <View style={styles.listContainer}>
-          <FlatList
-            data = {this.state.cursos}
-            renderItem = {({item}) => <ListItem title={item.title} descript={item.descript}/>}
-            keyExtractor = {(item) => this.state.cursos.indexOf(item).toString()}
-          />
-        </View>
+        <FlatList
+          data={this.state.cursos}
+          renderItem={({ item }) =>
+            <NbCard
+              title={item.title}
+              descript={item.descript}
+              onPress={() => this.verTemario(item.id)}
+            />
+          }
+          keyExtractor={(item) => item.id.toString()}
+          ItemSeparatorComponent={() => <Separator />}
+          ListEmptyComponent={() =>
+            <ActivityIndicator size='large' color='blue'/>
+          }
+        />
       </View>
     );
   }
 
-} // end of HelloWordApp class
+
+  verTemario(cursoId) {
+    this.props.navigation.navigate('TemarioCurso', {
+      cursoId: cursoId
+    });
+    // Alert.alert('Ver temario del curso: ' + cursoId);
+  }
+
+} // end of ListaCursos class
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'flex-start',
-    // alignItems: 'stretch',
     backgroundColor: 'white',
-  },
-  listContainer: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    // alignItems: 'stretch',
-    backgroundColor: 'yellow',
+    padding: 5
   }
 });
