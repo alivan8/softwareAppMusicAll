@@ -5,7 +5,7 @@ import { Container, Card,CardItem,Header, Title, Content, Footer, FooterTab, But
 class Perfil extends Component {
     render() {
         return (
-           <Text>sds</Text>
+           <Text>actualizado</Text>
         )
     }
 }

@@ -59,6 +59,15 @@ class LoginForm extends Component {
             returnKeyType='next'
             autoCorrect={false}
             />
+            <TextInput style={styles.input}
+            onChangeText={this.onEmailChange.bind(this)} 
+            value={this.props.email} 
+            placeholder="Enter username/email" 
+            placeholderTextColor='rgba(255,255,255,0.8)'
+            keyboardType='email-address'
+            returnKeyType='next'
+            autoCorrect={false}
+            />
             </View>
           </View>
           </SafeAreaView>
@@ -105,6 +114,7 @@ class LoginForm extends Component {
         height:40,
         backgroundColor:'rgba(255,255,255,0.2)',
         color:'#FFF',
+        paddingTop:5,
       }
   })
     
