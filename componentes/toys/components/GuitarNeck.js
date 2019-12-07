@@ -579,7 +579,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'steelblue',
+    backgroundColor: 'black',
   },
   guitarNeckView: {
     backgroundColor: '#4f3d21',
