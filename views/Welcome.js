@@ -45,7 +45,7 @@ export default class Welcome extends Component {
             style={{ height, width, flex: 1, alignSelf: 'center' }}
           />
 
-          <View style={{ width: '90%' }}>
+          <View style={styles.buttonsView}>
             <Separator />
             <Button
               title='Lista de Temas de Práctica (ScrollView)'
@@ -54,15 +54,6 @@ export default class Welcome extends Component {
                 this.props.navigation.navigate('ListaTemasPractica');
               }}
             />
-            {/**<Separator/>  */}
-
-            {/**<Button
-            title='Lista de Cursos (FlatList)'
-            color='skyblue'
-            onPress={() => {
-              this.props.navigation.navigate('ListaCursos');
-            }}
-          />   */}
             <Separator />
             <Button
               title='Lista de Cursos (Card)'
@@ -87,6 +78,16 @@ export default class Welcome extends Component {
                 Alert.alert('No implementado','Esta función no está implementada.');
               }}
             />
+            {/*
+            
+            <Separator/>
+            <Button
+              title='Lista de Cursos (FlatList)'
+              color='skyblue'
+              onPress={() => {
+                this.props.navigation.navigate('ListaCursos');
+              }}
+            />   */}
             <Separator />
           </View>
 
@@ -122,5 +123,8 @@ const styles = StyleSheet.create({
     borderBottomColor: '#737373',
     borderBottomWidth: StyleSheet.hairlineWidth,
   },
+  buttonsView: {
+
+  }
 
 });
