@@ -4,13 +4,12 @@ import {
   View,
   StyleSheet
 } from 'react-native';
-import GuitarNeck from './components/GuitarNeck';
 
-export default class GuitarNeckDemo extends Component {
+export default class DrumToy extends Component {
 
   // opciones para personalizar la navegación (ej: titulo en ActionBar)
   static navigationOptions = {
-    title: 'Guitarra'
+    title: 'Batería'
   }
 
   constructor(Props) {

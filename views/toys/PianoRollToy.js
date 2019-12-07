@@ -4,9 +4,9 @@ import {
   StyleSheet
 } from 'react-native';
 
-import PianoRoll from './components/PianoRoll';
+import PianoRoll from '../components/PianoRoll';
 
-export default class PianoRollDemo extends Component {
+export default class PianoRollToy extends Component {
 
   // opciones para personalizar la navegación (ej: titulo en ActionBar)
   static navigationOptions = {
