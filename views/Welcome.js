@@ -7,7 +7,7 @@ import {
   Image,
   Button,
   Dimensions,
-  ScrollView 
+  ScrollView
 } from 'react-native';
 
 function Separator() {
@@ -29,69 +29,69 @@ export default class Welcome extends Component {
 
   render() {
     const { width } = Dimensions.get('window');
-    const ratio = width/541;
+    const ratio = width / 541;
     //const height=362*ratio
-    const height=400*ratio
+    const height = 400 * ratio
     console.log(ratio)
     return (
       <ScrollView >
-      <View style={styles.container}>
-        <StatusBar backgroundColor='#000bdf'/>
-       
-        <Image
-                source={{ uri: 'guitarra'  }}
-                style={{ height, width, flex: 1, alignSelf: 'center' }}
-              />
-       
-        <View style={{width: '90%'}}>
-          <Separator/>
-          <Button
-            title='PianoRoll'
-            color='#000bdf'
-            onPress={() => {
-              this.props.navigation.navigate('PianoRollDemo');
-            }}
+        <View style={styles.container}>
+          <StatusBar backgroundColor='#000bdf' />
+
+          <Image
+            source={{ uri: 'guitarra' }}
+            style={{ height, width, flex: 1, alignSelf: 'center' }}
           />
-          <Separator/>
-          <Button
-            title='GuitarNeck'
-            color='#df000b'
-            onPress={() => {
-              this.props.navigation.navigate('GuitarNeckDemo');
-            }}
-          />
-          <Separator/>
-          <Button
-            title='Lista de Temas de Práctica (ScrollView)'
-            color='#dfd300'
-            onPress={() => {
-              this.props.navigation.navigate('ListaTemasPractica');
-            }}
-          />
-         {/**<Separator/>  */}
-         
-        {/**<Button
+
+          <View style={{ width: '90%' }}>
+            <Separator />
+            <Button
+              title='PianoRoll'
+              color='#000bdf'
+              onPress={() => {
+                this.props.navigation.navigate('PianoRollDemo');
+              }}
+            />
+            <Separator />
+            <Button
+              title='GuitarNeck'
+              color='#df000b'
+              onPress={() => {
+                this.props.navigation.navigate('GuitarNeckDemo');
+              }}
+            />
+            <Separator />
+            <Button
+              title='Lista de Temas de Práctica (ScrollView)'
+              color='#dfd300'
+              onPress={() => {
+                this.props.navigation.navigate('ListaTemasPractica');
+              }}
+            />
+            {/**<Separator/>  */}
+
+            {/**<Button
             title='Lista de Cursos (FlatList)'
             color='skyblue'
             onPress={() => {
               this.props.navigation.navigate('ListaCursos');
             }}
-          />   */} 
-          <Separator/>
-          <Button
-            title='Lista de Cursos (Card)'
-            color='#1d5c34'
-            onPress={() => {
-              this.props.navigation.navigate('ListaCardsCursos');
-            }}
-          />
-          <Separator/>
+          />   */}
+            <Separator />
+            <Button
+              title='Lista de Cursos (Card)'
+              color='#1d5c34'
+              onPress={() => {
+                this.props.navigation.navigate('ListaCardsCursos');
+              }}
+            />
+            <Separator />
+          </View>
+
         </View>
-      
-      </View>
-      </ScrollView>  
+      </ScrollView>
     );
-    
+
   }
 
 } // end of HelloWordApp class
