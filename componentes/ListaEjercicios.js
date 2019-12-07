@@ -2,32 +2,23 @@ import React, { Component } from 'react';
 import { ScrollView, Image, View, StyleSheet } from 'react-native';
 import { Container, Header, Card, CardItem, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text } from 'native-base';
 
-function EjercicioCard() {
-  return (
-    <TouchableOpacity onPress={this.props.onPress}>
-      <Card style={{ flex: 0 }}>
-        <CardItem>
-          <Image source={{ uri: this.props.image }} />
-        </CardItem>
-        <CardItem>
-          <Text></Text>
-        </CardItem>
-      </Card>
-    </TouchableOpacity>
-  );
-}
-
-class Ejercicio extends Component {
+export default class ListaEjercicios extends Component {
   render() {
     return (
       <Container>
+        <Text>La imagen de teclado debería tener dimensiones que lleven a su parent.</Text>
         {/* card de Teclado */}
-        <TouchableOpacity onPress={this.props.onPress}>
+        <TouchableOpacity onPress={this.props.navigation.navigate('PianoRollToy')}>
           <Card style={{ flex: 0 }}>
             <CardItem>
-              <Image source={{ uri: 'teclado' }} />
+              {/* TODO: aplicar disposición "fill" a la imagen */}
+              <Image
+                source={{ uri: 'toys_teclado' }}
+                style={{ flex: 1, alignSelf: 'stretch', width: undefined, height: undefined }}
+                resizeMode='cover'
+              />
             </CardItem>
-            <CardItem>
+            <CardItem style={{ marginTop: -100 }}>
               <Text>Teclado</Text>
             </CardItem>
           </Card>
@@ -35,24 +26,24 @@ class Ejercicio extends Component {
 
 
         {/* card de Guitarra */}
-        <TouchableOpacity onPress={this.props.onPress}>
+        <TouchableOpacity onPress={this.props.navigation.navigate('GuitarNeckToy')}>
           <Card style={{ flex: 0 }}>
             <CardItem>
-              <Image source={{ uri: 'guitarra' }} />
+              <Image source={{ uri: 'toys_guitarra' }} />
             </CardItem>
-            <CardItem>
+            <CardItem style={{ marginTop: -100 }}>
               <Text>Guitarra</Text>
             </CardItem>
           </Card>
         </TouchableOpacity>
 
         {/* card de Batería */}
-        <TouchableOpacity onPress={this.props.onPress}>
+        <TouchableOpacity onPress={this.props.navigation.navigate('DrumToy')}>
           <Card style={{ flex: 0 }}>
             <CardItem>
-              <Image source={{ uri: 'bateria' }} />
+              <Image source={{ uri: 'toys_bateria' }} />
             </CardItem>
-            <CardItem>
+            <CardItem style={{ marginTop: -100 }}>
               <Text>Batería</Text>
             </CardItem>
           </Card>
@@ -76,5 +67,3 @@ const styles = StyleSheet.create({
   }
 
 });
-
-export default Ejercicio;

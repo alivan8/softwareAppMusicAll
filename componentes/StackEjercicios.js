@@ -1,17 +1,44 @@
 import { createStackNavigator } from 'react-navigation-stack';
-import Ejercicio from './ListaEjercicios';
+// vista "lista de ejercicios"
+import ListaEjercicios from './ListaEjercicios';
+
+// vistas de juguetes o ejercicios concretos
+import PianoToy from './toys/PianoRollToy';
+import GuitarToy from './toys/GuitarToy';
+import DrumToy from './toys/DrumToy';
 
 
-
-export const StackEjercicios = createStackNavigator({
-  Ejercicio: {
-    screen: Ejercicio,
+// mapa de rutas
+const navRoutesMap = {
+  ListaEjercicios: {
+    screen: ListaEjercicios,
     navigationOptions: {
-      header: null,
+      // header: null,  // esconde el headerBar de React Navigation
     },
+  },
+  PianoToy: {
+    screen: PianoToy,
+    navigationOptions: {
+      header: null  // esconde el headerBar de React Navigation
+    }
+  },
+  GuitarToy: {
+    screen: GuitarToy,
+    navigationOptions: {
+      header: null  // esconde el headerBar de React Navigation
+    }
+  },
+  DrumToy: {
+    screen: DrumToy,
+    navigationOptions: {
+      header: null  // esconde el headerBar de React Navigation
+    }
   }
-}, {
-  initialRouteName: 'Ejercicio',
+};
+
+// opciones de navegación
+const navOpts = {
+  initialRouteName: 'ListaEjercicios',
   defaultNavigationOptions: {
     headerStyle: {
       backgroundColor: '#188bc4',
@@ -21,4 +48,6 @@ export const StackEjercicios = createStackNavigator({
     //headerTintColor: '#168a20',
     //headerTitleStyle: {fontWeight: 'bold', color: '#ffffff'}
   }
-})
+};
+
+export const StackEjercicios = createStackNavigator(navRoutesMap, navOpts);
