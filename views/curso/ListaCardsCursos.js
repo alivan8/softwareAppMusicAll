@@ -30,16 +30,22 @@ export default class ListaCardsCursos extends Component {
   constructor(Props) {
     super(Props);
 
+    this.state = {
+      cursos: [
+        {
+          id: 1,
+          title:
+          'Curso PlaceHolder',
+          descript: 'Este es un curso de relleno a mostrarse cuando no se ha cargado la lista de cursos desde la red.'
+        },
+      ]
+    };
+
     this.componentDidMount = () => {
       fetch(`http://sismusic.herokuapp.com/api/lista/cursos`)
       .then((rawResponse) => rawResponse.json()).then((response) => {
         if (response.cursos !== undefined) {
-          /*  obtener los datos en response.NOMBRE_ATRIBUTO
-
-            formato de los datos:
-            - nombre_profe
-            - nombre_curso
-          */
+          /*  obtener los datos en response.cursos */
 
           let cursosCargados = [];
           Alert.alert(
@@ -51,8 +57,8 @@ export default class ListaCardsCursos extends Component {
             // empujar cada uno de los cursos recibidos al array de cursosCargados
             cursosCargados.push({
               id: item.id,
-              nombre: item.nombre_curso,
-              descripcion: item.descripcion
+              title: item.nombre_curso,
+              descript: item.descripcion
             });
             console.log('Añadido curso: ' + cursosCargados[cursosCargados.length - 1]);
           });
@@ -76,16 +82,7 @@ export default class ListaCardsCursos extends Component {
       });
     }
 
-    this.state = {
-      cursos: [
-        {
-          id: 1,
-          title:
-          'Curso PlaceHolder',
-          descript: 'Este es un curso de relleno a mostrarse cuando no se ha cargado la lista de cursos desde la red.'
-        },
-      ]
-    };
+    
   }
 
   render() {
