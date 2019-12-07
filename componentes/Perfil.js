@@ -6,6 +6,7 @@ class Perfil extends Component {
     render() {
         return (
            <Text>actualizado</Text>
+           <Text>Luis Alejandro Dice "Hola"</Text>
         )
     }
 }
