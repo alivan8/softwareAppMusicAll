@@ -4,7 +4,7 @@ import {
   StyleSheet
 } from 'react-native';
 
-import PianoRoll from '../components/PianoRoll';
+import PianoRoll from './components/PianoRoll';
 
 export default class PianoRollToy extends Component {
 

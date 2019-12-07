@@ -4,7 +4,7 @@ import {
   View,
   StyleSheet
 } from 'react-native';
-import GuitarNeck from '../components/GuitarNeck';
+import GuitarNeck from './components/GuitarNeck';
 
 export default class GuitarToy extends Component {
 
