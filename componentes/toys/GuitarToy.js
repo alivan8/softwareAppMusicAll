@@ -9,9 +9,9 @@ import GuitarNeck from './components/GuitarNeck';
 export default class GuitarToy extends Component {
 
   // opciones para personalizar la navegación (ej: titulo en ActionBar)
-  static navigationOptions = {
+  /* static navigationOptions = {
     title: 'Guitarra'
-  }
+  }*/
 
   constructor(Props) {
     super(Props);

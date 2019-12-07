@@ -8,9 +8,9 @@ import {
 export default class DrumToy extends Component {
 
   // opciones para personalizar la navegación (ej: titulo en ActionBar)
-  static navigationOptions = {
+  /* static navigationOptions = {
     title: 'Batería'
-  }
+  }*/
 
   constructor(Props) {
     super(Props);
