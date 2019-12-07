@@ -22,13 +22,13 @@ export default class DrumToy extends Component {
     return (
       <View style={styles.container}>
 
-        <GuitarNeck/>
+        <Text>Coming Soon!</Text>
 
       </View>
     );
   }
 
-} // end of HelloWordApp class
+} // end of DrumToy class
 
 const styles = StyleSheet.create({
   container: {
