@@ -11,8 +11,6 @@ import { tabAuditivo } from '../componentes/tabAuditivo';
 // importando las demás vistas
 
 import Welcome from './Welcome';
-import PianoRollToy from '../componentes/toys/PianoRollToy';
-import GuitarNeckToy from '../componentes/toys/GuitarToy';
 import ListaTemasPractica from './ListaTemasPractica';
 import VerTemaPractica from './VerTemaPractica';
 import ListaCursos from './curso/ListaCursos';
@@ -27,12 +25,6 @@ import NavegadorTema from './curso/NavegadorTema';
 const navRouteMap = {
   Welcome: {
     screen: Welcome
-  },
-  PianoRollToy: {
-    screen: PianoRollToy
-  },
-  GuitarNeckToy: {
-    screen: GuitarNeckToy
   },
   ListaTemasPractica: {
     screen: ListaTemasPractica
