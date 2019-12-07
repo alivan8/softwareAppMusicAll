@@ -7,7 +7,15 @@ import {
   TouchableOpacity,
   Text
 } from 'react-native';
- import { Container, Header, Card, CardItem, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon} from 'native-base';
+import { Container, Header, Card, CardItem, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon } from 'native-base';
+
+function Separator() {
+  return <View style={{
+    marginVertical: 8,
+    borderBottomColor: 'silver',
+    borderBottomWidth: StyleSheet.hairlineWidth,
+  }} />;
+}
 
 export default class ListaEjercicios extends Component {
   render() {
@@ -29,6 +37,7 @@ export default class ListaEjercicios extends Component {
             </Card>
           </TouchableOpacity>
 
+          <Separator />
 
           {/* card de Guitarra */}
           <TouchableOpacity onPress={() => { this.props.navigation.navigate('GuitarToy') }}>
@@ -44,6 +53,8 @@ export default class ListaEjercicios extends Component {
               </CardItem>
             </Card>
           </TouchableOpacity>
+
+          <Separator />
 
           {/* card de Batería */}
           <TouchableOpacity onPress={() => { this.props.navigation.navigate('DrumToy') }}>
@@ -68,8 +79,7 @@ export default class ListaEjercicios extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // margin: 10,
-    // alignItems: 'fl',
+    padding: 5
   },
   card: {
     // flexDirection: 'column'
