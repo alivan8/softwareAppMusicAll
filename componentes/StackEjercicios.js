@@ -13,7 +13,8 @@ const navRoutesMap = {
   ListaEjercicios: {
     screen: ListaEjercicios,
     navigationOptions: {
-      // header: null,  // esconde el headerBar de React Navigation
+      // title: 'Toys'
+      header: null,  // esconde el headerBar de React Navigation
     },
   },
   PianoToy: {
