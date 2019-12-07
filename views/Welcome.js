@@ -7,7 +7,9 @@ import {
   Image,
   Button,
   Dimensions,
-  ScrollView
+  ScrollView,
+  Alert,
+  AlertB
 } from 'react-native';
 
 function Separator() {
@@ -46,22 +48,6 @@ export default class Welcome extends Component {
           <View style={{ width: '90%' }}>
             <Separator />
             <Button
-              title='PianoRoll'
-              color='#000bdf'
-              onPress={() => {
-                this.props.navigation.navigate('PianoRollDemo');
-              }}
-            />
-            <Separator />
-            <Button
-              title='GuitarNeck'
-              color='#df000b'
-              onPress={() => {
-                this.props.navigation.navigate('GuitarNeckDemo');
-              }}
-            />
-            <Separator />
-            <Button
               title='Lista de Temas de Práctica (ScrollView)'
               color='#dfd300'
               onPress={() => {
@@ -83,6 +69,22 @@ export default class Welcome extends Component {
               color='#1d5c34'
               onPress={() => {
                 this.props.navigation.navigate('ListaCardsCursos');
+              }}
+            />
+            <Separator />
+            <Button
+              title='NoUtilizado'
+              color='#000bdf'
+              onPress={() => {
+                Alert.alert('No implementado','Esta función no está implementada.');
+              }}
+            />
+            <Separator />
+            <Button
+              title='NoUtilizado'
+              color='#df000b'
+              onPress={() => {
+                Alert.alert('No implementado','Esta función no está implementada.');
               }}
             />
             <Separator />
