@@ -25,6 +25,7 @@ import colors from './styles/colors';
 
 import {RutasGenerales} from '../componentes/RutasGenerales';
 import Splash from './screens/Splash';
+import LoginScreen from '../componentes/loginDesign/components/LoginScreen';
 
 
 const MainScreen = createStackNavigator(
@@ -64,7 +65,7 @@ const AppNavigator = createSwitchNavigator(
   {
     AuthLoading: AuthLoadingScreen,
     App: RutasGenerales,
-    Splash:Splash,
+    LoginScreen:LoginScreen,
     Auth: createStackNavigator(
     {
       Login: {
@@ -78,7 +79,7 @@ const AppNavigator = createSwitchNavigator(
     })
   },
   {
-    initialRouteName: 'App',
+    initialRouteName: 'Auth',
   }
 );
 

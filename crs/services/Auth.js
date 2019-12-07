@@ -1,2 +1,2 @@
 export const OAUTH_CLIENT_ID =2
-export const OAUTH_CLIENT_SECRET ='w72MVCJn18yuGCFxZix8kqCVG3Hvb0vEGKmfzG2X'
+export const OAUTH_CLIENT_SECRET ='Bpl2nG1tSFvQ2QYhyIYh1xvhBFDONxZ7NQiic1fd'
