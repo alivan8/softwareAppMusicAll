@@ -11,13 +11,11 @@ import { tabAuditivo } from '../componentes/tabAuditivo';
 // importando las demás vistas
 
 import Welcome from './Welcome';
-import PianoRollToy from './toys/PianoRollToy';
-import GuitarNeckToy from './toys/GuitarToy';
+import PianoRollToy from '../componentes/toys/PianoRollToy';
+import GuitarNeckToy from '../componentes/toys/GuitarToy';
 import ListaTemasPractica from './ListaTemasPractica';
 import VerTemaPractica from './VerTemaPractica';
 import ListaCursos from './curso/ListaCursos';
-import Login from './Login';
-import SignUp from './SignUp';
 
 // cursos
 import ListaCardsCursos from './curso/ListaCardsCursos';
@@ -44,12 +42,6 @@ const navRouteMap = {
   },
   ListaCursos: {
     screen: ListaCursos
-  },
-  Login: {
-    screen: Login
-  },
-  SignUp: {
-    screen: SignUp
   },
   ListaCardsCursos: {
     screen: ListaCardsCursos
