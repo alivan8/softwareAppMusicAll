@@ -71,6 +71,8 @@ const AppNavigator = createSwitchNavigator(
         screen: Login,
         navigationOptions: {
           title: 'Login',
+          header: null,
+
         }
       }
     })
