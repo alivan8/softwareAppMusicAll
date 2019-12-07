@@ -30,14 +30,60 @@ export default class ListaCardsCursos extends Component {
   constructor(Props) {
     super(Props);
 
+    this.componentDidMount = () => {
+      fetch(`http://sismusic.herokuapp.com/api/lista/cursos`)
+      .then((rawResponse) => rawResponse.json()).then((response) => {
+        if (response.cursos !== undefined) {
+          /*  obtener los datos en response.NOMBRE_ATRIBUTO
+
+            formato de los datos:
+            - nombre_profe
+            - nombre_curso
+          */
+
+          let cursosCargados = [];
+          Alert.alert(
+            'Respuesta del servidor:',
+            JSON.stringify(response.cursos)
+          );
+
+          response.cursos.forEach((item) => {
+            // empujar cada uno de los cursos recibidos al array de cursosCargados
+            cursosCargados.push({
+              id: item.id,
+              nombre: item.nombre_curso,
+              descripcion: item.descripcion
+            });
+            console.log('Añadido curso: ' + cursosCargados[cursosCargados.length - 1]);
+          });
+
+          this.setState({cursos: cursosCargados});
+
+        } else {
+          // manejar el caso en que procesar la request ha fallado
+          Alert.alert(
+            'Error al procesar la respuesta',
+            `Probablemente el servidor se encuentre experimentando problemas`
+          );
+        }
+      }).catch((reason) => {
+        Alert.alert(
+          'Error',
+          'Error al obtener la lista de cursos. Quizás se trate de un problema de red.\n\n'
+          + 'Por favor, intente de nuevo más tarde.'
+        );
+        console.log(reason);
+      });
+    }
+
     this.state = {
       cursos: [
-        { id: 1, title: 'Curso 1', descript: 'Dia del full blast, let it go.' },
-        { id: 2, title: 'Curso 2', descript: 'Dia del alargue, keep going.' },
-        { id: 3, title: 'Curso 3', descript: 'Dia del aguante, dont pussy out.' },
-        { id: 4, title: 'Curso 4', descript: 'Dia del sufrimiento, get thru it.' },
-        { id: 5, title: 'Curso 5', descript: 'Dia del cuestionamiento, is this for me?.' },
-        { id: 6, title: 'Curso 6', descript: 'Dia de la determinación, go for it.' },
+        {
+          id: 1,
+          title:
+          'Curso PlaceHolder',
+          descript: 'Este es un curso de relleno a mostrarse cuando no se ha cargado la lista de cursos desde la red.'
+        },
       ]
     };
   }
@@ -71,6 +117,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'flex-start',
     backgroundColor: 'white',
+    padding: 5
   },
   listContainer: {
     flex: 1,
