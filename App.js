@@ -5,9 +5,9 @@ import { createStore, applyMiddleware } from 'redux';
 import ReduxThunk from 'redux-thunk';
 import reducers from './crs/reducers';
 
-import { View, Text, Button } from 'react-native'
-import { RutasGenerales } from './componentes/RutasGenerales';
-import { createAppContainer } from 'react-navigation';
+import { View, Text,Button } from 'react-native'
+import {RutasGenerales} from './componentes/RutasGenerales';
+import {createAppContainer} from 'react-navigation';
 import Router from './crs/Router';
 
 
@@ -17,11 +17,14 @@ class App extends Component {
   render() {
     const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
     return (
-      <Provider store={store}>
-        <Root>
-          <Router />
-        </Root>
-      </Provider>
+     
+              
+            <Provider store={store}>
+              <Root>
+                <Router />
+              </Root>
+            </Provider>
+      
     );
   }
 }

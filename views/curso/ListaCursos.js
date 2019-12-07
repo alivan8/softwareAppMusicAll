@@ -42,6 +42,8 @@ export default class ListaCuros extends Component {
             keyExtractor = {(item) => this.state.cursos.indexOf(item).toString()}
           />
         </View>
+        
+        
       </View>
     );
   }
