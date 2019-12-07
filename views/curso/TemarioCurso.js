@@ -62,7 +62,7 @@ export default class TemarioCurso extends Component {
     // Alert.alert('Ir a ver tema: ' + temaId);
   }
 
-} // end of ListaCardsCursos class
+} // end of TemarioCurso class
 
 const styles = StyleSheet.create({
   container: {
