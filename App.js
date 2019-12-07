@@ -11,16 +11,20 @@ import {createAppContainer} from 'react-navigation';
 import Router from './crs/Router';
 
 
+
 const RutasGen = createAppContainer(RutasGenerales);
 class App extends Component {
   render() {
     const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
     return (
-      <Provider store={store}>
-      	<Root>
-          <Router />
-        </Root>
-      </Provider>
+     
+              
+            <Provider store={store}>
+              <Root>
+                <Router />
+              </Root>
+            </Provider>
+      
     );
   }
 }

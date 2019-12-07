@@ -6,6 +6,7 @@ import {
   StatusBar,
   Image,
   Button,
+  Dimensions,
   ScrollView 
 } from 'react-native';
 
@@ -27,12 +28,20 @@ export default class Welcome extends Component {
   }
 
   render() {
+    const { width } = Dimensions.get('window');
+    const ratio = width/541;
+    //const height=362*ratio
+    const height=400*ratio
+    console.log(ratio)
     return (
       <ScrollView >
       <View style={styles.container}>
         <StatusBar backgroundColor='#000bdf'/>
-        <Text style={styles.textoBienvenida}>Bienvenido a MusiClass!</Text>
        
+        <Image
+                source={{ uri: 'guitarra'  }}
+                style={{ height, width, flex: 1, alignSelf: 'center' }}
+              />
        
         <View style={{width: '90%'}}>
           <Separator/>
@@ -111,4 +120,5 @@ const styles = StyleSheet.create({
     borderBottomColor: '#737373',
     borderBottomWidth: StyleSheet.hairlineWidth,
   },
+
 });

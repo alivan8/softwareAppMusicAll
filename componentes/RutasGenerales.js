@@ -52,7 +52,7 @@ export const RutasGenerales = createMaterialBottomTabNavigator({
     ),
     },
   },*/
-  Ejercicio: {
+  StackEjercicios: {
     screen: StackEjercicios,
     navigationOptions:{
       tabBarLabel:'EJERCICIOS',

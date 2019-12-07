@@ -41,16 +41,26 @@ class LoginForm extends Component {
         return (
           <Container>
             <Content>
+              {/**----------CARD------------------ */}
               <Card>
+                {/**------------FORM---------------- */}
                 <Form>
+                  {/**------------ITEM---------------- */}
                   <Item>
                     <Input onChangeText={this.onEmailChange.bind(this)} value={this.props.email} placeholder="Email" />
                   </Item>
+                  {/**------------ITEM---------------- */}
+
+                  {/**------------ITEM LAST---------------- */}
                   <Item last>
                     <Input secureTextEntry onChangeText={this.onPasswordChange.bind(this)} value={this.props.password} placeholder="Password" />
                   </Item>
+                  {/**------------ITEM LAST---------------- */}
                 </Form>
+              {/**------------FORM---------------- */}
                 {this.renderError()}
+
+                {/**------------FAR---------------- */}
                 <CardItem>
                   <Body>
                   <Button block onPress={this.onButtonPress.bind(this)}>
@@ -59,6 +69,7 @@ class LoginForm extends Component {
                   </Body>
                 </CardItem>
               </Card>
+              {/**---------------------------- */}
             </Content>
           </Container>
         );

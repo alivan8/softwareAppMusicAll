@@ -39,6 +39,7 @@ export default class ListaTemasPractica extends Component {
         
           <ScrollView>
             <View style={{ flex: 1, flexDirection: "column", alignItems: "center" }}>
+
               <View style={{flex: 1, flexDirection: "row", alignItems: "center"}}>
                 <TouchableOpacity 
                 style={styles.itemIconView} 
@@ -46,18 +47,22 @@ export default class ListaTemasPractica extends Component {
                 <RoundListItem title="Tema1" descript="" /> 
                 </TouchableOpacity> 
               </View>
+
+
               <View style={{flex: 1, flexDirection: "row", alignItems: "center"}}>
-              <TouchableOpacity 
-                style={styles.itemIconView} 
-                onPress={ () => {navigation.navigate('tabAuditivo')}}>
-                <RoundListItem title="Tema 2" descript=""/>  
-                </TouchableOpacity> 
                 <TouchableOpacity 
-                style={styles.itemIconView} 
-                onPress={ () => {navigation.navigate('tabAuditivo')}}>
-                <RoundListItem title="Tema 3" descript=""/>
-                </TouchableOpacity> 
+                  style={styles.itemIconView} 
+                  onPress={ () => {navigation.navigate('tabAuditivo')}}>
+                  <RoundListItem title="Tema 2" descript=""/>  
+                  </TouchableOpacity> 
+                  <TouchableOpacity 
+                  style={styles.itemIconView} 
+                  onPress={ () => {navigation.navigate('tabAuditivo')}}>
+                  <RoundListItem title="Tema 3" descript=""/>
+                  </TouchableOpacity> 
               </View>
+
+              
               <View style={{flex: 1, flexDirection: "row", alignItems: "center"}}>
                 <RoundListItem title="Tema 4" descript=""/>
                 <RoundListItem title="Tema 5" descript=""/>
