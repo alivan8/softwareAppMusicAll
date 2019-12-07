@@ -4,19 +4,21 @@ import {
   StyleSheet,
   Text,
   FlatList,
-  Alert
+  Alert,
+  ActivityIndicator,
+  ToastAndroid
 } from 'react-native';
 import NbCard from '../components/NbCard';
 
 function Separator() {
   return (
-  <View
-    style={{
-      marginVertical: 8,
-      borderBottomColor: '#737373',
-      borderBottomWidth: StyleSheet.hairlineWidth,
-    }}
-  />
+    <View
+      style={{
+        marginVertical: 8,
+        borderBottomColor: 'silver',
+        borderBottomWidth: StyleSheet.hairlineWidth,
+      }}
+    />
   );
 }
 
@@ -24,7 +26,7 @@ export default class ListaCardsCursos extends Component {
 
   // opciones para personalizar la navegación (ej: titulo en ActionBar)
   static navigationOptions = {
-    title: 'Lista de Cursos (cards)'
+    title: 'Lista de Cursos'
   }
 
   constructor(Props) {
@@ -32,75 +34,80 @@ export default class ListaCardsCursos extends Component {
 
     this.state = {
       cursos: [
-        {
+        /* {
           id: 1,
           title:
           'Curso PlaceHolder',
           descript: 'Este es un curso de relleno a mostrarse cuando no se ha cargado la lista de cursos desde la red.'
-        },
+        }, */
       ]
     };
 
     this.componentDidMount = () => {
-      fetch(`http://sismusic.herokuapp.com/api/lista/cursos`)
-      .then((rawResponse) => rawResponse.json()).then((response) => {
-        if (response.cursos !== undefined) {
-          /*  obtener los datos en response.cursos */
+      fetch(`https://sismusic.herokuapp.com/api/lista/cursos`)
+        .then((rawResponse) => rawResponse.json()).then((response) => {
+          if (response.data !== undefined) {
+            /*  obtener los datos en response.cursos */
 
-          let cursosCargados = [];
-          Alert.alert(
-            'Respuesta del servidor:',
-            JSON.stringify(response.cursos)
-          );
+            let cursosCargados = [];
+            // Alert.alert(
+            //   'Respuesta del servidor:',
+            //   JSON.stringify(response.cursos)
+            // );
 
-          response.cursos.forEach((item) => {
-            // empujar cada uno de los cursos recibidos al array de cursosCargados
-            cursosCargados.push({
-              id: item.id,
-              title: item.nombre_curso,
-              descript: item.descripcion
+
+            response.data.forEach((item) => {
+              // empujar cada uno de los cursos recibidos al array de cursosCargados
+              cursosCargados.push({
+                id: item.id,
+                title: item.nombre_curso,
+                descript: item.descripcion
+              });
+              // console.log('Añadido curso: ' + cursosCargados[cursosCargados.length - 1]);
             });
-            console.log('Añadido curso: ' + cursosCargados[cursosCargados.length - 1]);
-          });
 
-          this.setState({cursos: cursosCargados});
+            this.setState({ cursos: cursosCargados });
+            ToastAndroid.show(
+              `Se ha cargado ${cursosCargados.length} cursos`,
+              ToastAndroid.LONG
+            );
 
-        } else {
-          // manejar el caso en que procesar la request ha fallado
+          } else {
+            // manejar el caso en que procesar la request ha fallado
+            Alert.alert(
+              'Error al procesar la respuesta',
+              `Probablemente el servidor se encuentre experimentando problemas`
+            );
+          }
+        }).catch((reason) => {
           Alert.alert(
-            'Error al procesar la respuesta',
-            `Probablemente el servidor se encuentre experimentando problemas`
+            'Error',
+            'Error al obtener la lista de cursos. Quizás se trate de un problema de red.\n\n'
+            + 'Por favor, intente de nuevo más tarde.'
           );
-        }
-      }).catch((reason) => {
-        Alert.alert(
-          'Error',
-          'Error al obtener la lista de cursos. Quizás se trate de un problema de red.\n\n'
-          + 'Por favor, intente de nuevo más tarde.'
-        );
-        console.log(reason);
-      });
+          console.warn(reason);
+        });
     }
 
-    
+
   }
 
   render() {
     return (
       <View style={styles.container}>
-        <Text>Lista de Cursos</Text>
         <FlatList
           data={this.state.cursos}
-          renderItem={({item}) => <NbCard title={item.title} descript={item.descript} onPress={() => this.verTemario(item.id) } />}
+          renderItem={({ item }) => <NbCard title={item.title} descript={item.descript} onPress={() => this.verTemario(item.id)} />}
           keyExtractor={(item) => item.id.toString()}
-          ItemSeparatorComponent={()=><Separator/>}
-        />        
+          ItemSeparatorComponent={() => <Separator />}
+          ListEmptyComponent={() => <ActivityIndicator size='large' color='blue' />}
+        />
       </View>
     );
   }
 
 
-  verTemario(cursoId){
+  verTemario(cursoId) {
     this.props.navigation.navigate('TemarioCurso', {
       cursoId: cursoId
     });
