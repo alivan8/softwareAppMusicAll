@@ -24,7 +24,7 @@ export default class TemarioCurso extends Component {
 
   // opciones para personalizar la navegación (ej: titulo en ActionBar)
   static navigationOptions = {
-    title: 'Ver Temario'
+    title: 'Temario del Curso'
   }
 
   constructor(Props) {
@@ -43,7 +43,7 @@ export default class TemarioCurso extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={{ alignSelf: 'center' }}>Temario del Curso: {this.props.navigation.getParam('cursoId')}</Text>
+        <Text>Viendo temas del curso: {this.props.navigation.getParam('cursoId')}</Text>
         <FlatList
           data={this.state.temas}
           renderItem={({ item }) => <NbCard title={item.title} descript={item.descript} onPress={() => this.verTema(item.id)} />}
