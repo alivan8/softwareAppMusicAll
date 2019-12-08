@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {
-  Text,
   View,
   StyleSheet,
   StatusBar,
@@ -8,8 +7,7 @@ import {
   Button,
   Dimensions,
   ScrollView,
-  Alert,
-  AlertB
+  Alert
 } from 'react-native';
 
 function Separator() {
