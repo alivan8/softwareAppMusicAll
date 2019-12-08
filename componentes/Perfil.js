@@ -5,10 +5,10 @@ import { Container, Card,CardItem,Header, Title, Content, Footer, FooterTab, But
 class Perfil extends Component {
     render() {
         return (
-          <View>
-           <Text>actualizado</Text>
-           <Text>Luis Alejandro Dice "Hola"</Text>
-           </View>
+          <View style={styles.container}>
+            <Text>actualizado</Text>
+            <Text>Luis Alejandro Dice "Hola"</Text>
+          </View>
         );
     }
 }
