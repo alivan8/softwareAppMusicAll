@@ -49,8 +49,9 @@ const styles = StyleSheet.create({
     width: 160,
     // marginVertical: 3,
     margin: 10,
-    borderWidth: 1,
-    borderColor: 'black'
+    // solo usados para debug de UI:
+    // borderWidth: 1,
+    // borderColor: 'black'
   },
   backgroundCircle:{
     height: 160,
@@ -68,8 +69,9 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    borderWidth: 1,
-    borderColor: 'black'
+    // solo usados para debug de UI:
+    // borderWidth: 1,
+    // borderColor: 'black'
   },
   title: {
     fontSize: 20,
@@ -85,14 +87,16 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    borderWidth: 1,
-    borderColor: 'black',
+    // solo usados para debug de UI:
+    // borderWidth: 1,
+    // borderColor: 'black'
   },
   squaredImage75: {
     height: 75,
     width: 75,
     margin: 1,
-    borderWidth: 1,
-    borderColor: 'black'
+    // solo usados para debug de UI:
+    // borderWidth: 1,
+    // borderColor: 'black'
   },
 });

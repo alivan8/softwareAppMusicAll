@@ -1,24 +1,31 @@
 import React, { Component } from 'react';
 import {
-  Text,
   View,
-  StyleSheet,
-  StatusBar
+  StyleSheet
 } from 'react-native';
 
-export default class Login extends Component {
+import PianoRoll from './components/PianoRoll';
+
+export default class PianoRollToy extends Component {
+
+  // opciones para personalizar la navegación (ej: titulo en ActionBar)
+  /*static navigationOptions = {
+    title: 'Piano Roll'
+  }*/
 
   constructor(Props) {
     super(Props);
 
-    this.state = { };
+    this.state = {};
   }
 
   render() {
     return (
       <View style={styles.container}>
 
-        <Text>Login!</Text>
+        <View style={{flex: 1}}>
+          <PianoRoll/>
+        </View>
 
       </View>
     );

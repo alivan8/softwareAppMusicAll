@@ -1,37 +1,34 @@
 import React, { Component } from 'react';
 import {
+  Text,
   View,
   StyleSheet
 } from 'react-native';
 
-import PianoRoll from './components/PianoRoll';
-
-export default class PianoRollDemo extends Component {
+export default class DrumToy extends Component {
 
   // opciones para personalizar la navegación (ej: titulo en ActionBar)
-  static navigationOptions = {
-    title: 'Piano Roll'
-  }
+  /* static navigationOptions = {
+    title: 'Batería'
+  }*/
 
   constructor(Props) {
     super(Props);
 
-    this.state = {};
+    this.state = { };
   }
 
   render() {
     return (
       <View style={styles.container}>
 
-        <View style={{flex: 1}}>
-          <PianoRoll/>
-        </View>
+        <Text>Coming Soon!</Text>
 
       </View>
     );
   }
 
-} // end of HelloWordApp class
+} // end of DrumToy class
 
 const styles = StyleSheet.create({
   container: {

@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
 import {
-  Text,
   View,
   StyleSheet,
   StatusBar,
   Image,
   Button,
   Dimensions,
-  ScrollView 
+  ScrollView,
+  Alert
 } from 'react-native';
 
 function Separator() {
-  return <View style={styles.separator} />;
+  return <View style={{
+      marginVertical: 10,
+      borderBottomColor: 'silver',
+      borderBottomWidth: StyleSheet.hairlineWidth,
+    }}/>;
 }
 
 export default class Welcome extends Component {
@@ -28,11 +32,14 @@ export default class Welcome extends Component {
   }
 
   render() {
-    const { width } = Dimensions.get('window');
-    const ratio = width/541;
-    //const height=362*ratio
-    const height=400*ratio
-    console.log(ratio)
+
+    // formulita para una imagen que ocupa 100% del ancho
+    // de la pantalla, manteniendo relación de aspecto
+    const width = Dimensions.get('window').width;
+    const windowHeight = Dimensions.get('window').height;
+    const ratio = width / windowHeight;
+    const height = width * ratio;
+
     return (
       <ScrollView >
       <View style={styles.container}>
@@ -52,40 +59,53 @@ export default class Welcome extends Component {
               this.props.navigation.navigate('PianoRollDemo');
             }}
           />
-          <Separator/>
-          <Button
-            title='GuitarNeck'
-            color='#df000b'
-            onPress={() => {
-              this.props.navigation.navigate('GuitarNeckDemo');
-            }}
-          />
-          <Separator/>
-          <Button
-            title='Lista de Temas de Práctica (ScrollView)'
-            color='#dfd300'
-            onPress={() => {
-              this.props.navigation.navigate('ListaTemasPractica');
-            }}
-          />
-         {/**<Separator/>  */}
-         
-        {/**<Button
-            title='Lista de Cursos (FlatList)'
-            color='skyblue'
-            onPress={() => {
-              this.props.navigation.navigate('ListaCursos');
-            }}
-          />   */} 
-          <Separator/>
-          <Button
-            title='Lista de Cursos (Card)'
-            color='#1d5c34'
-            onPress={() => {
-              this.props.navigation.navigate('ListaCardsCursos');
-            }}
-          />
-          <Separator/>
+
+          <View style={styles.buttonsView}>
+            <Separator/>
+            <Button
+              title='Lista de Temas de Práctica'
+              color='#cf9cff'
+              onPress={() => {
+                this.props.navigation.navigate('ListaTemasPractica');
+              }}
+            />
+            <Separator/>
+            <Button
+              title='Lista de Cursos'
+              color='#9c34ff'
+              onPress={() => {
+                this.props.navigation.navigate('ListaCursos');
+              }}
+            />
+            <Separator/>
+            <Button
+              title='NoUtilizado'
+              color='#6200c3'
+              onPress={() => {
+                Alert.alert('No implementado','Esta función no está implementada.');
+              }}
+            />
+            <Separator/>
+            <Button
+              title='NoUtilizado'
+              color='#320063'
+              onPress={() => {
+                Alert.alert('No implementado','Esta función no está implementada.');
+              }}
+            />
+            {/*
+            
+            <Separator/>
+            <Button
+              title='Lista de Cursos (FlatList)'
+              color='skyblue'
+              onPress={() => {
+                this.props.navigation.navigate('ListaCursos');
+              }}
+            />   */}
+            <Separator />
+          </View>
+
         </View>
       
       </View>
@@ -115,10 +135,7 @@ const styles = StyleSheet.create({
     fontStyle: 'italic',
     margin: 10
   },
-  separator: {
-    marginVertical: 8,
-    borderBottomColor: '#737373',
-    borderBottomWidth: StyleSheet.hairlineWidth,
-  },
-
+  buttonsView: {
+    width: '90%'
+  }
 });

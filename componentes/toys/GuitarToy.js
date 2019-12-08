@@ -2,11 +2,16 @@ import React, { Component } from 'react';
 import {
   Text,
   View,
-  StyleSheet,
-  StatusBar
+  StyleSheet
 } from 'react-native';
+import GuitarNeck from './components/GuitarNeck';
 
-export default class SignUp extends Component {
+export default class GuitarToy extends Component {
+
+  // opciones para personalizar la navegación (ej: titulo en ActionBar)
+  /* static navigationOptions = {
+    title: 'Guitarra'
+  }*/
 
   constructor(Props) {
     super(Props);
@@ -18,7 +23,7 @@ export default class SignUp extends Component {
     return (
       <View style={styles.container}>
 
-        <Text>SignUp!</Text>
+        <GuitarNeck/>
 
       </View>
     );
@@ -31,6 +36,5 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'flex-start',
-    backgroundColor: '#FCFCFC',
   }
 });
