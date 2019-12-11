@@ -98,7 +98,7 @@ export const RutasGenerales = createMaterialBottomTabNavigator({
 );
 
 RutasGenerales.navigationOptions = ({ navigation }) => {
-  
+  console.log('navigation:',JSON.stringify( navigation));
   let tabBarVisible = true;
   if (navigation.state.index > 0) {
     tabBarVisible = false;

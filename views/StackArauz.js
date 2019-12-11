@@ -58,3 +58,6 @@ const navOptions = {
 };
 
 export const StackArauz = createStackNavigator(navRouteMap, navOptions);
+
+
+
