@@ -9,9 +9,10 @@ export const tabAuditivo = createMaterialTopTabNavigator(
         Teoria: {
         screen: Teoria,
         navigationOptions:{
+          
             tabBarOptions: {
                 style: {
-                    backgroundColor: '#71c418',
+                    backgroundColor: 'blue',
                   },
             }
         }
@@ -22,7 +23,7 @@ export const tabAuditivo = createMaterialTopTabNavigator(
         navigationOptions:{
             tabBarOptions: {
                 style: {
-                    backgroundColor: '#71c418',
+                    backgroundColor: 'blue',
                   },
             }
         }
@@ -30,6 +31,8 @@ export const tabAuditivo = createMaterialTopTabNavigator(
     },
     {
       tabBarPosition: 'top',
-      
+      swipeEnabled:true,
     },
   );
+
+ 

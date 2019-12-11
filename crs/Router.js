@@ -66,6 +66,7 @@ const AppNavigator = createSwitchNavigator(
     AuthLoading: AuthLoadingScreen,
     App: RutasGenerales,
     LoginScreen:LoginScreen,
+    Splash:Splash,
     Auth: createStackNavigator(
     {
       Login: {
@@ -79,7 +80,7 @@ const AppNavigator = createSwitchNavigator(
     })
   },
   {
-    initialRouteName: 'Auth',
+    initialRouteName: 'App',
   }
 );
 

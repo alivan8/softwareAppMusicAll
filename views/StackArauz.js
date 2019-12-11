@@ -21,7 +21,8 @@ import NavegadorTema from './curso/NavegadorTema';
 // mapa de rutas de navegación
 const navRouteMap = {
   Welcome: {
-    screen: Welcome
+    screen: Welcome,
+    
   },
   ListaTemasPractica: {
     screen: ListaTemasPractica
@@ -45,7 +46,9 @@ const navRouteMap = {
 
 // opciones del navegador
 const navOptions = {
+  
   defaultNavigationOptions: {
+    
     headerTintColor: '#FCFCFC', // color de la fuente
     headerStyle: {
       backgroundColor: 'blue' // color de fondo del actionBar
@@ -55,5 +58,3 @@ const navOptions = {
 };
 
 export const StackArauz = createStackNavigator(navRouteMap, navOptions);
-
-
