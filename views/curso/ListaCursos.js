@@ -33,21 +33,14 @@ export default class ListaCursos extends Component {
     super(Props);
 
     this.state = {
-      cursos: [
-        /* {
-          id: 1,
-          title:
-          'Curso PlaceHolder',
-          descript: 'Este es un curso de relleno a mostrarse cuando no se ha cargado la lista de cursos desde la red.'
-        }, */
-      ]
+      cursos: null    // inicialmente, cursos es null
     };
 
     this.componentDidMount = () => {
       fetch(`https://sismusic.herokuapp.com/api/lista/cursos`)
         .then((rawResponse) => rawResponse.json()).then((response) => {
           if (response.data !== undefined) {
-            /*  obtener los datos en response.cursos */
+            /*  obtener los cursos en response.data */
 
             let cursosCargados = [];
             // Alert.alert(
@@ -55,13 +48,12 @@ export default class ListaCursos extends Component {
             //   JSON.stringify(response.cursos)
             // );
 
-
-            response.data.forEach((item) => {
+            response.data.forEach((curso) => {
               // empujar cada uno de los cursos recibidos al array de cursosCargados
               cursosCargados.push({
-                id: item.id,
-                title: item.nombre_curso,
-                descript: item.descripcion
+                id: curso.id,
+                title: curso.nombre_curso,
+                descript: curso.descripcion
               });
               // console.log('Añadido curso: ' + cursosCargados[cursosCargados.length - 1]);
             });
@@ -88,36 +80,40 @@ export default class ListaCursos extends Component {
           console.warn(reason);
         });
     }
-
-
   }
 
   render() {
+    const flatList = <FlatList
+      data={this.state.cursos}
+      renderItem={({ item }) =>
+        <NbCard
+          title={item.title}
+          descript={item.descript}
+          onPress={() => this.verTemario(item)}
+        />
+      }
+      keyExtractor={(item) => item.id.toString()}
+      ItemSeparatorComponent={() => <Separator />}
+      ListEmptyComponent={() => <Text>No hay cursos disponibles</Text>}
+    />;
+    const loading = <ActivityIndicator size='large' color='blue' />;
+
     return (
       <View style={styles.container}>
-        <FlatList
-          data={this.state.cursos}
-          renderItem={({ item }) =>
-            <NbCard
-              title={item.title}
-              descript={item.descript}
-              onPress={() => this.verTemario(item.id)}
-            />
-          }
-          keyExtractor={(item) => item.id.toString()}
-          ItemSeparatorComponent={() => <Separator />}
-          ListEmptyComponent={() =>
-            <ActivityIndicator size='large' color='blue'/>
-          }
-        />
+        {this.state.cursos ? flatList : loading}
       </View>
     );
   }
 
 
-  verTemario(cursoId) {
+  /**
+   * Function que permite ver el temario de un curso elegido
+   * @param Integer cursoId 
+   */
+  verTemario(curso) {
     this.props.navigation.navigate('TemarioCurso', {
-      cursoId: cursoId
+      cursoId: curso.id,
+      cursoNombre: curso.title
     });
     // Alert.alert('Ver temario del curso: ' + cursoId);
   }
