@@ -20,8 +20,44 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 //const Search = createAppContainer(StackSearch);
 
-export const RutasGenerales = createMaterialBottomTabNavigator({
+export const RutasGenerales = createMaterialTopTabNavigator({
   StackArauz: {
+    screen: StackArauz,
+    navigationOptions: {
+      tabBarIcon: ({ tintColor }) => (
+        
+        <Icon name="home" size={30} color="#fff" />
+      ),
+      title:'MENU',
+    },
+  },
+ 
+  StackEjercicios: {
+    screen: StackEjercicios,
+    navigationOptions: {
+      tabBarIcon: ({ tintColor }) => (
+        
+        <Icon name="angellist" size={30} color="#fff" />
+      ),
+      title:'HERRAMIENTAS',
+      
+    },
+  },
+  Perfil: {
+    screen: StackPerfil,
+    navigationOptions: {
+      tabBarIcon: ({ tintColor }) => (
+        
+        <Icon name="address-card" size={30} color="#fff" />
+      ),
+      title:'PERFIL',
+
+    },
+  },
+
+ 
+ 
+  /* StackArauz: {
     screen: StackArauz,
     navigationOptions:{
       
@@ -55,7 +91,7 @@ export const RutasGenerales = createMaterialBottomTabNavigator({
     ),
     },
   },*/
-  StackEjercicios: {
+/* StackEjercicios: {
     screen: StackEjercicios,
     navigationOptions:{
       //headerShown: false,
@@ -78,8 +114,8 @@ export const RutasGenerales = createMaterialBottomTabNavigator({
     navigationOptions:{
      tabBarLabel:'PERFIL',
       activeColor: '#fff',
+      pressColor :'red',
       inactiveColor: '#1e9b1e',
-     // tabBarLabel:'PERFIL',
       tabBarColor:'#0065ff',
      // barStyle={ { paddingBottom: 10 }},
       tabBarIcon:({tintColor})=>(
@@ -89,16 +125,23 @@ export const RutasGenerales = createMaterialBottomTabNavigator({
         ),
       
    },
-  },
+  },*/
   
 },{
   tabBarPosition: 'bottom',
   swipeEnabled:true,
+  tabBarOptions:{    
+    showIcon: true,
+    style:{
+      backgroundColor:'#0065ff'
+    },
+    
+  }
 },
 );
 
 RutasGenerales.navigationOptions = ({ navigation }) => {
-  console.log('navigation:',JSON.stringify( navigation));
+ // console.log('navigation:',JSON.stringify( navigation));
   let tabBarVisible = true;
   if (navigation.state.index > 0) {
     tabBarVisible = false;

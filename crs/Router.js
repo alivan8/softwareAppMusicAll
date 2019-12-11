@@ -80,7 +80,7 @@ const AppNavigator = createSwitchNavigator(
     })
   },
   {
-    initialRouteName: 'App',
+    initialRouteName: 'AuthLoading',
   }
 );
 
