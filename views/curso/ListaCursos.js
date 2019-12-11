@@ -9,18 +9,7 @@ import {
   ToastAndroid
 } from 'react-native';
 import NbCard from '../components/NbCard';
-
-function Separator() {
-  return (
-    <View
-      style={{
-        marginVertical: 8,
-        borderBottomColor: 'silver',
-        borderBottomWidth: StyleSheet.hairlineWidth,
-      }}
-    />
-  );
-}
+import Separator from './components/Separator';
 
 export default class ListaCursos extends Component {
 
@@ -37,32 +26,31 @@ export default class ListaCursos extends Component {
     };
 
     this.componentDidMount = () => {
+      // array de los cursos a cargar desde la API
+      let cursosCargados = [];  // inicialmente vacío, obviamente :v
+      
       fetch(`https://sismusic.herokuapp.com/api/lista/cursos`)
         .then((rawResponse) => rawResponse.json()).then((response) => {
           if (response.data !== undefined) {
-            /*  obtener los cursos en response.data */
+            // console.warn(JSON.stringify(response.data));
 
-            let cursosCargados = [];
-            // Alert.alert(
-            //   'Respuesta del servidor:',
-            //   JSON.stringify(response.cursos)
-            // );
-
+            // empujar cada uno de los cursos recibidos al array cursosCargados
             response.data.forEach((curso) => {
-              // empujar cada uno de los cursos recibidos al array de cursosCargados
               cursosCargados.push({
                 id: curso.id,
                 title: curso.nombre_curso,
                 descript: curso.descripcion
               });
-              // console.log('Añadido curso: ' + cursosCargados[cursosCargados.length - 1]);
             });
 
-            this.setState({ cursos: cursosCargados });
+            // informar a traves de un toast
             ToastAndroid.show(
               `Se ha cargado ${cursosCargados.length} cursos`,
               ToastAndroid.LONG
             );
+
+            // finalmente establecer el estado
+            this.setState({ cursos: cursosCargados });
 
           } else {
             // manejar el caso en que procesar la request ha fallado
@@ -71,6 +59,7 @@ export default class ListaCursos extends Component {
               `Probablemente el servidor se encuentre experimentando problemas`
             );
           }
+          this.setState({ cursos: cursosCargados });
         }).catch((reason) => {
           Alert.alert(
             'Error',
@@ -78,25 +67,29 @@ export default class ListaCursos extends Component {
             + 'Por favor, intente de nuevo más tarde.'
           );
           console.warn(reason);
+          this.setState({ cursos: cursosCargados });
         });
-    }
-  }
+    } // end of componentDidMount event
+
+
+  } // end of constructor
 
   render() {
-    const flatList = <FlatList
-      data={this.state.cursos}
-      renderItem={({ item }) =>
-        <NbCard
-          title={item.title}
-          descript={item.descript}
-          onPress={() => this.verTemario(item)}
-        />
-      }
-      keyExtractor={(item) => item.id.toString()}
-      ItemSeparatorComponent={() => <Separator />}
-      ListEmptyComponent={() => <Text>No hay cursos disponibles</Text>}
-    />;
     const loading = <ActivityIndicator size='large' color='blue' />;
+    const flatList =
+      <FlatList
+        data={this.state.cursos}
+        renderItem={({ item }) =>
+          <NbCard
+            title={item.title}
+            descript={item.descript}
+            onPress={() => this.verTemario(item)}
+          />
+        }
+        keyExtractor={(item) => item.id.toString()}
+        ItemSeparatorComponent={() => <Separator />}
+        ListEmptyComponent={() => <Text>No hay cursos disponibles</Text>}
+      />;
 
     return (
       <View style={styles.container}>
