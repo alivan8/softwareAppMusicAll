@@ -9,18 +9,7 @@ import {
   ActivityIndicator
 } from 'react-native';
 import NbCard from '../components/NbCard';
-
-function Separator() {
-  return (
-    <View
-      style={{
-        marginVertical: 8,
-        borderBottomColor: 'silver',
-        borderBottomWidth: StyleSheet.hairlineWidth,
-      }}
-    />
-  );
-}
+import Separator from './components/Separator';
 
 export default class TemarioCurso extends Component {
 
