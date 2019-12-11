@@ -12,10 +12,10 @@ import {
 
 function Separator() {
   return <View style={{
-      marginVertical: 10,
-      borderBottomColor: 'silver',
-      borderBottomWidth: StyleSheet.hairlineWidth,
-    }}/>;
+    marginVertical: 10,
+    borderBottomColor: 'silver',
+    borderBottomWidth: StyleSheet.hairlineWidth,
+  }} />;
 }
 
 export default class Welcome extends Component {
@@ -42,26 +42,16 @@ export default class Welcome extends Component {
 
     return (
       <ScrollView >
-      <View style={styles.container}>
-        <StatusBar backgroundColor='#000bdf'/>
-       
-        <Image
-                source={{ uri: 'guitarra'  }}
-                style={{ height, width, flex: 1, alignSelf: 'center' }}
-              />
-       
-        <View style={{width: '90%'}}>
-          <Separator/>
-          <Button
-            title='PianoRoll'
-            color='#000bdf'
-            onPress={() => {
-              this.props.navigation.navigate('PianoRollDemo');
-            }}
+        <View style={styles.container}>
+          <StatusBar backgroundColor='#000bdf' />
+
+          <Image
+            source={{ uri: 'guitarra' }}
+            style={{ height, width, flex: 1, alignSelf: 'center' }}
           />
 
           <View style={styles.buttonsView}>
-            <Separator/>
+            <Separator />
             <Button
               title='Lista de Temas de Práctica'
               color='#cf9cff'
@@ -69,7 +59,7 @@ export default class Welcome extends Component {
                 this.props.navigation.navigate('ListaTemasPractica');
               }}
             />
-            <Separator/>
+            <Separator />
             <Button
               title='Lista de Cursos'
               color='#9c34ff'
@@ -77,20 +67,20 @@ export default class Welcome extends Component {
                 this.props.navigation.navigate('ListaCursos');
               }}
             />
-            <Separator/>
+            <Separator />
             <Button
               title='NoUtilizado'
               color='#6200c3'
               onPress={() => {
-                Alert.alert('No implementado','Esta función no está implementada.');
+                Alert.alert('No implementado', 'Esta función no está implementada.');
               }}
             />
-            <Separator/>
+            <Separator />
             <Button
               title='NoUtilizado'
               color='#320063'
               onPress={() => {
-                Alert.alert('No implementado','Esta función no está implementada.');
+                Alert.alert('No implementado', 'Esta función no está implementada.');
               }}
             />
             {/*
@@ -107,11 +97,10 @@ export default class Welcome extends Component {
           </View>
 
         </View>
-      
-      </View>
-      </ScrollView>  
+
+      </ScrollView>
     );
-    
+
   }
 
 } // end of HelloWordApp class
