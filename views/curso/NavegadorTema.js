@@ -23,22 +23,21 @@ const navRouteMap = {
   }
 };
 
-const navOptions = {
-  defaultNavigationOptions : {
-    headerTintColor: '#FCFCFC', // color de la fuente
-    headerStyle: {
-      backgroundColor: 'blue' // color de fondo del actionBar
-    }
-  },
-  initialScreen: 'ListarTareas',
+const tabNavConfig = {
+  initialScreen: 'VerTema',
   swipeEnabled: true,
+  tabBarOptions: {
+    style: {
+      backgroundColor: 'blue',
+    }
+  }
 };
 
-const TopTabNavigator = createMaterialTopTabNavigator(navRouteMap, navOptions);
+const TopTabNavigator = createMaterialTopTabNavigator(navRouteMap, tabNavConfig);
 const AppContainer = createAppContainer(TopTabNavigator);
 
 export default class App extends Component {
   render() {
-    return <AppContainer/>
+    return <AppContainer />
   }
 }
