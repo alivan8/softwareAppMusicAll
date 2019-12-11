@@ -1,25 +1,26 @@
 import React, {Component} from 'react';
 import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
+import { createAppContainer } from 'react-navigation';
 
 // rutas
 import VerTema from './VerTema';
-import ListarTareas from './ListarTareas';
-import ListarExamenes from './ListarExamenes';
-import ListarMaterialesApoyo from './ListarMaterialesApoyo';
-import { createAppContainer } from 'react-navigation';
+import ListaTareas from './ListaTareas';
+import ListaExamenes from './ListaExamenes';
+import ListaMaterialesApoyo from './ListaMaterialesApoyo';
+
 
 const navRouteMap = {
   VerTema: {
     screen: VerTema
   },
-  ListarTareas: {
-    screen: ListarTareas
+  ListaTareas: {
+    screen: ListaTareas
   },
-  ListarExamenes: {
-    screen: ListarExamenes
+  ListaExamenes: {
+    screen: ListaExamenes
   },
-  ListarMaterialesApoyo: {
-    screen: ListarMaterialesApoyo
+  ListaMaterialesApoyo: {
+    screen: ListaMaterialesApoyo
   }
 };
 
@@ -34,10 +35,7 @@ const tabNavConfig = {
 };
 
 const TopTabNavigator = createMaterialTopTabNavigator(navRouteMap, tabNavConfig);
-const AppContainer = createAppContainer(TopTabNavigator);
+// const AppContainer = createAppContainer(TopTabNavigator);
 
-export default class App extends Component {
-  render() {
-    return <AppContainer />
-  }
-}
+// export default AppContainer;
+export default TopTabNavigator;
