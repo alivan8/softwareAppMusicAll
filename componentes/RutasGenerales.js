@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 import {StackEntrenamientoAuditivo} from './StackEntrenamientoAuditivo';
 import {StackEntrenamientoRitmo} from './StackEntrenamientoRitmo';
@@ -8,6 +9,7 @@ import {StackPerfil} from './StackPerfil';
 import{Image,View} from 'react-native';
 import { MaterialCommunityIcons } from 'react-native-vector-icons';
 import {StackArauz} from '../views/StackArauz';
+import Swiper from "react-native-web-swiper";
 
 //import Icon from 'react-native-vector-icons/FontAwesome';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -22,6 +24,7 @@ export const RutasGenerales = createMaterialBottomTabNavigator({
   StackArauz: {
     screen: StackArauz,
     navigationOptions:{
+      
       headerTintColor: "#fff",
       tabBarLabel:'AUDITIVOS',
       shifting : 'true',
@@ -55,6 +58,7 @@ export const RutasGenerales = createMaterialBottomTabNavigator({
   StackEjercicios: {
     screen: StackEjercicios,
     navigationOptions:{
+      //headerShown: false,
       tabBarLabel:'EJERCICIOS',
       
       //tabBarBadge:'string',
@@ -72,10 +76,10 @@ export const RutasGenerales = createMaterialBottomTabNavigator({
   Perfil: {
     screen: StackPerfil,
     navigationOptions:{
-      tabBarLabel:'perfil',
+     tabBarLabel:'PERFIL',
       activeColor: '#fff',
       inactiveColor: '#1e9b1e',
-      tabBarLabel:'PERFIL',
+     // tabBarLabel:'PERFIL',
       tabBarColor:'#0065ff',
      // barStyle={ { paddingBottom: 10 }},
       tabBarIcon:({tintColor})=>(
@@ -87,9 +91,22 @@ export const RutasGenerales = createMaterialBottomTabNavigator({
    },
   },
   
-}
-
-
-
-
+},{
+  tabBarPosition: 'bottom',
+  swipeEnabled:true,
+},
 );
+
+RutasGenerales.navigationOptions = ({ navigation }) => {
+  console.log('navigation:',JSON.stringify( navigation));
+  let tabBarVisible = true;
+  if (navigation.state.index > 0) {
+    tabBarVisible = false;
+  }
+
+  return {
+    tabBarVisible,
+  };
+};
+
+
