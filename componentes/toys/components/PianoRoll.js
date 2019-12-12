@@ -16,7 +16,7 @@ export default class PianoRoll extends Component {
     const soundList = ["c", "cs", "d", "ds", "e", "f", "fs", "g", "gs", "a", "as", "b"];
     soundList.forEach(note => {
       this.sound[note] = new Player(note + '.mp3', {autoDestroy: false});
-      this.sound[note].prepare();
+      // this.sound[note].prepare();
     });
 
     // backgroundColor
