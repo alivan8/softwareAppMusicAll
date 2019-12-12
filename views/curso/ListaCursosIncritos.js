@@ -29,6 +29,8 @@ export default class ListaCursosInscritos extends Component {
       // array de los cursos a cargar desde la API
       let cursosCargados = [];  // inicialmente vacío, obviamente :v
 
+      // obtener la dirección de correo pasada por parametro de navegación
+      // usando 'estudiante1@gmail.com' como fallback :v
       let correoEstudiante = this.props.navigation.getParam('correo','estudiante1@gmail.com');
       
       // TODO: cambiar el correo hardcodeado :v
