@@ -84,6 +84,7 @@ export default class ListaCursos extends Component {
             title={item.title}
             descript={item.descript}
             onPress={() => this.verTemario(item)}
+            imgUri={'teach_child_' + (Math.floor(Math.random() * 4) + 1)}
           />
         }
         keyExtractor={(item) => item.id.toString()}
