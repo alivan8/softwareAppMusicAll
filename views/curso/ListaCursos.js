@@ -31,7 +31,7 @@ export default class ListaCursos extends Component {
       
       fetch(`https://sismusic.herokuapp.com/api/lista/cursos`)
         .then((rawResponse) => rawResponse.json()).then((response) => {
-          if (response.data !== undefined) {
+          if (response.data != undefined && response.data != null) {
             // console.warn(JSON.stringify(response.data));
 
             // empujar cada uno de los cursos recibidos al array cursosCargados

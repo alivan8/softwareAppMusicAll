@@ -34,7 +34,7 @@ export default class TemarioCurso extends Component {
       fetch(`https://sismusic.herokuapp.com/api/lista/temarios?id=${cursoId}`)
         .then((rawResponse) => rawResponse.json()).then((response) => {
           // console.warn(response);
-          if (response.data !== undefined && response.data != null) {
+          if (response.data != undefined && response.data != null) {
             // console.warn(response.data.length);
 
             response.data.forEach((item) => {
