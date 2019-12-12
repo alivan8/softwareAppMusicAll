@@ -28,12 +28,14 @@ export default class TemarioCurso extends Component {
     this.componentDidMount = function () {
       // obtener el ID del curso especificado
       const cursoId = this.props.navigation.getParam('cursoId');
+      let temasCargados = [];
 
       // obtener los datos del servidor
       fetch(`https://sismusic.herokuapp.com/api/lista/temarios?id=${cursoId}`)
         .then((rawResponse) => rawResponse.json()).then((response) => {
-          if (typeof (response.data) != 'undefined') {
-            let temasCargados = [];
+          console.warn(response);
+          if (response.data !== undefined && response.data != null) {
+            console.warn(response.data.length);
 
             response.data.forEach((item) => {
               temasCargados.push({
@@ -41,20 +43,20 @@ export default class TemarioCurso extends Component {
                 title: item.titulo,
                 descript: item.justicacion
               });
-
-              this.setState({ temas: temasCargados });
-
-              ToastAndroid.show(
-                `Se ha cargado ${temasCargados.length} cursos`,
-                ToastAndroid.LONG
-              );
-
             });
+            ToastAndroid.show(
+              `Se ha cargado ${temasCargados.length} temas`,
+              ToastAndroid.LONG
+            );
+
+            this.setState({ temas: temasCargados });
+            console.warn('temasCargados: ', temasCargados);
           } else {
             Alert.alert(
               'Error al procesar los temas',
               'Probablemente el servidor se encuentra experimentando problemas'
             );
+            this.setState({ temas: temasCargados });
           }
         }).catch((reason) => {
           Alert.alert(
@@ -63,6 +65,7 @@ export default class TemarioCurso extends Component {
             + 'Por favor, intente de nuevo más tarde.'
           );
           console.warn(reason);
+          this.setState({ temas: temasCargados });
         });
     }
   }
