@@ -33,9 +33,9 @@ export default class TemarioCurso extends Component {
       // obtener los datos del servidor
       fetch(`https://sismusic.herokuapp.com/api/lista/temarios?id=${cursoId}`)
         .then((rawResponse) => rawResponse.json()).then((response) => {
-          console.warn(response);
+          // console.warn(response);
           if (response.data !== undefined && response.data != null) {
-            console.warn(response.data.length);
+            // console.warn(response.data.length);
 
             response.data.forEach((item) => {
               temasCargados.push({
@@ -50,7 +50,7 @@ export default class TemarioCurso extends Component {
             );
 
             this.setState({ temas: temasCargados });
-            console.warn('temasCargados: ', temasCargados);
+            // console.warn('temasCargados: ', temasCargados);
           } else {
             Alert.alert(
               'Error al procesar los temas',
@@ -64,7 +64,7 @@ export default class TemarioCurso extends Component {
             'Error al obtener la lista de temas del curso elegido. Quizás se trate de un problema de red.\n\n'
             + 'Por favor, intente de nuevo más tarde.'
           );
-          console.warn(reason);
+          // console.warn(reason);
           this.setState({ temas: temasCargados });
         });
     }
@@ -73,7 +73,13 @@ export default class TemarioCurso extends Component {
   render() {
     const flatList = <FlatList
       data={this.state.temas}
-      renderItem={({ item }) => <NbCard title={item.title} descript={item.descript} onPress={() => this.verTema(item)} />}
+      renderItem={({ item }) =>
+        <NbCard
+          title={item.title}
+          descript={item.descript}
+          onPress={() => this.verTema(item)}
+          imgUri={'teach_child_' + (Math.floor(Math.random() * 4) + 1)}
+        />}
       keyExtractor={(item) => item.id.toString()}
       ItemSeparatorComponent={() => <Separator />}
       ListEmptyComponent={() => <Text>No hay temas</Text>}
