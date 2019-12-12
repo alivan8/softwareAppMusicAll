@@ -15,6 +15,7 @@ import Tunnerr from './tunner/app';
 
 //import Icon from 'react-native-vector-icons/FontAwesome';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import ListaCursosIncritos from '../views/curso/ListaCursosIncritos';
 
 //import Icon from 'react-native-vector-icons/Ionicons';  
 
@@ -124,7 +125,7 @@ export const RutasGenerales = createMaterialTopTabNavigator({
    },
   },
   Perfil: {
-    screen: StackPerfil,
+    screen: ListaCursosIncritos,
     navigationOptions:{
      tabBarLabel:'PERFIL',
       activeColor: '#fff',

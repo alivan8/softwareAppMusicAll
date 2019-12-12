@@ -4,21 +4,12 @@ import {
   StyleSheet,
   Text,
   FlatList,
-  Alert
+  Alert,
+  ToastAndroid,
+  ActivityIndicator
 } from 'react-native';
 import NbCard from '../components/NbCard';
-
-function Separator() {
-  return (
-    <View
-      style={{
-        marginVertical: 8,
-        borderBottomColor: '#737373',
-        borderBottomWidth: StyleSheet.hairlineWidth,
-      }}
-    />
-  );
-}
+import Separator from './components/Separator';
 
 export default class TemarioCurso extends Component {
 
@@ -31,33 +22,90 @@ export default class TemarioCurso extends Component {
     super(Props);
 
     this.state = {
-      temas: [
-        { id: 1, title: 'Tema 1', descript: 'Dia del full blast, let it go.' },
-        { id: 2, title: 'Tema 2', descript: 'Dia del alargue, keep going.' },
-        { id: 3, title: 'Tema 3', descript: 'Dia del aguante, dont pussy out.' },
-        { id: 4, title: 'Tema 4', descript: 'Dia del sufrimiento, get thru it.' },
-      ]
+      temas: null
     };
+
+    this.componentDidMount = function () {
+      // obtener el ID del curso especificado
+      const cursoId = this.props.navigation.getParam('cursoId');
+      let temasCargados = [];
+
+      // obtener los datos del servidor
+      fetch(`https://sismusic.herokuapp.com/api/lista/temarios?id=${cursoId}`)
+        .then((rawResponse) => rawResponse.json()).then((response) => {
+          // console.warn(response);
+          if (response.data != undefined && response.data != null) {
+            // console.warn(response.data.length);
+
+            response.data.forEach((item) => {
+              temasCargados.push({
+                id: item.id,
+                title: item.titulo,
+                descript: item.justicacion
+              });
+            });
+            ToastAndroid.show(
+              `Se ha cargado ${temasCargados.length} temas`,
+              ToastAndroid.LONG
+            );
+
+            this.setState({ temas: temasCargados });
+            // console.warn('temasCargados: ', temasCargados);
+          } else {
+            Alert.alert(
+              'Error al procesar los temas',
+              'Probablemente el servidor se encuentra experimentando problemas'
+            );
+            this.setState({ temas: temasCargados });
+          }
+        }).catch((reason) => {
+          Alert.alert(
+            'Error',
+            'Error al obtener la lista de temas del curso elegido. Quizás se trate de un problema de red.\n\n'
+            + 'Por favor, intente de nuevo más tarde.'
+          );
+          // console.warn(reason);
+          this.setState({ temas: temasCargados });
+        });
+    }
   }
 
   render() {
+    const flatList = <FlatList
+      data={this.state.temas}
+      renderItem={({ item }) =>
+        <NbCard
+          title={item.title}
+          descript={item.descript}
+          onPress={() => this.verTema(item)}
+          imgUri={'teach_child_' + (Math.floor(Math.random() * 4) + 1)}
+        />}
+      keyExtractor={(item) => item.id.toString()}
+      ItemSeparatorComponent={() => <Separator />}
+      ListEmptyComponent={() => <Text>No hay temas</Text>}
+    />;
+    const loading = <ActivityIndicator size='large' color='blue' />;
+
+    const cursoNombre = this.props.navigation.getParam('cursoNombre');
+    const cursoId = this.props.navigation.getParam('cursoId');
+
     return (
       <View style={styles.container}>
-        <Text>Viendo temas del curso: {this.props.navigation.getParam('cursoId')}</Text>
-        <FlatList
-          data={this.state.temas}
-          renderItem={({ item }) => <NbCard title={item.title} descript={item.descript} onPress={() => this.verTema(item.id)} />}
-          keyExtractor={(item) => item.id.toString()}
-          ItemSeparatorComponent={() => <Separator />}
-        />
+        <View>
+          <Text>Usted está viendo los temas del curso:</Text>
+          <Text>{`${cursoNombre} (ID: ${cursoId})`}</Text>
+        </View>
+
+        {this.state.temas ? flatList : loading}
       </View>
     );
   }
 
 
-  verTema(temaId) {
+  verTema(tema) {
     this.props.navigation.navigate('NavegadorTema', {
-      temaId: temaId
+      temaId: tema.id,
+      temaTitulo: tema.title
     });
     // Alert.alert('Ir a ver tema: ' + temaId);
   }
@@ -69,12 +117,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'flex-start',
     backgroundColor: 'white',
+    padding: 5
   },
-  listContainer: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    // alignItems: 'stretch',
-    backgroundColor: 'yellow',
-  }
 });

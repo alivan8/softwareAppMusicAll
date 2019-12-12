@@ -21,9 +21,9 @@ export default class VerTema extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.contenedorTexto}>
-          <Text style={styles.h1}>Viendo tema: {this.props.navigation.getParam('temaId')}</Text>
+          <Text style={styles.h1}>{`Viendo tema: ${this.props.navigation.getParam('temaTitulo')} (ID: ${this.props.navigation.getParam('temaId')})`}</Text>
         </View>
-        <Text style={styles.h2}>Contenido del curso :v</Text>
+        <Text style={styles.h2}>Contenido del tema :v</Text>
         <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           Tibi hoc incredibile, quod beatissimum.
           Eam stabilem appellas.

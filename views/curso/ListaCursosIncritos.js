@@ -11,11 +11,11 @@ import {
 import NbCard from '../components/NbCard';
 import Separator from './components/Separator';
 
-export default class ListaCursos extends Component {
+export default class ListaCursosInscritos extends Component {
 
   // opciones para personalizar la navegación (ej: titulo en ActionBar)
   static navigationOptions = {
-    title: 'Lista de Cursos'
+    title: 'Lista de Cursos Inscritos'
   }
 
   constructor(Props) {
@@ -28,8 +28,11 @@ export default class ListaCursos extends Component {
     this.componentDidMount = () => {
       // array de los cursos a cargar desde la API
       let cursosCargados = [];  // inicialmente vacío, obviamente :v
+
+      let correoEstudiante = this.props.navigation.getParam('correo','estudiante1@gmail.com');
       
-      fetch(`https://sismusic.herokuapp.com/api/lista/cursos`)
+      // TODO: cambiar el correo hardcodeado :v
+      fetch(`https://sismusic.herokuapp.com/api/cursos/inscrito?correo=${correoEstudiante}`)
         .then((rawResponse) => rawResponse.json()).then((response) => {
           if (response.data != undefined && response.data != null) {
             // console.warn(JSON.stringify(response.data));
@@ -38,8 +41,9 @@ export default class ListaCursos extends Component {
             response.data.forEach((curso) => {
               cursosCargados.push({
                 id: curso.id,
-                title: curso.nombre_curso,
-                descript: curso.descripcion
+                title: curso.nombre,
+                descript: curso.descripcion,
+                imgUri: curso.imagen
               });
             });
 
@@ -84,12 +88,12 @@ export default class ListaCursos extends Component {
             title={item.title}
             descript={item.descript}
             onPress={() => this.verTemario(item)}
-            imgUri={'teach_child_' + (Math.floor(Math.random() * 4) + 1)}
+            imgUri={'https://sismusic.herokuapp.com' + item.imgUri}
           />
         }
         keyExtractor={(item) => item.id.toString()}
         ItemSeparatorComponent={() => <Separator />}
-        ListEmptyComponent={() => <Text>No hay cursos disponibles</Text>}
+        ListEmptyComponent={() => <Text>No hay cursos inscritos</Text>}
       />;
 
     return (
