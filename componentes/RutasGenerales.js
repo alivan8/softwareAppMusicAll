@@ -13,6 +13,7 @@ import Swiper from "react-native-web-swiper";
 
 //import Icon from 'react-native-vector-icons/FontAwesome';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import ListaCursosIncritos from '../views/curso/ListaCursosIncritos';
 
 //import Icon from 'react-native-vector-icons/Ionicons';  
 
@@ -74,7 +75,7 @@ export const RutasGenerales = createMaterialBottomTabNavigator({
    },
   },
   Perfil: {
-    screen: StackPerfil,
+    screen: ListaCursosIncritos,
     navigationOptions:{
      tabBarLabel:'PERFIL',
       activeColor: '#fff',
