@@ -33,7 +33,7 @@ export default class NbCard extends Component {
           </CardItem>
           <CardItem cardBody>
             <Image
-                source={{ uri: 'teach_child_' + (Math.floor(Math.random() * 4) + 1) }}
+                source={{ uri: this.props.imgUri }}
                 style={styles.cardImage}
               />
             </CardItem>
