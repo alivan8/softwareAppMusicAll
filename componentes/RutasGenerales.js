@@ -6,10 +6,12 @@ import {StackEntrenamientoAuditivo} from './StackEntrenamientoAuditivo';
 import {StackEntrenamientoRitmo} from './StackEntrenamientoRitmo';
 import {StackEjercicios} from './StackEjercicios';
 import {StackPerfil} from './StackPerfil';
+import {StackPerfil2} from './StackPerfil2';
 import{Image,View} from 'react-native';
 import { MaterialCommunityIcons } from 'react-native-vector-icons';
 import {StackArauz} from '../views/StackArauz';
 import Swiper from "react-native-web-swiper";
+import Tunnerr from './tunner/app';
 
 //import Icon from 'react-native-vector-icons/FontAwesome';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -26,7 +28,7 @@ export const RutasGenerales = createMaterialTopTabNavigator({
     navigationOptions: {
       tabBarIcon: ({ tintColor }) => (
         
-        <Icon name="home" size={30} color="#fff" />
+        <Icon name="home" size={30} color={tintColor} />
       ),
       title:'MENU',
     },
@@ -37,18 +39,30 @@ export const RutasGenerales = createMaterialTopTabNavigator({
     navigationOptions: {
       tabBarIcon: ({ tintColor }) => (
         
-        <Icon name="angellist" size={30} color="#fff" />
+        <Icon name="gamepad" size={30} color={tintColor} />
       ),
       title:'HERRAMIENTAS',
       
     },
   },
-  Perfil: {
-    screen: StackPerfil,
+  
+  Tunnerr: {
+    screen: Tunnerr,
     navigationOptions: {
       tabBarIcon: ({ tintColor }) => (
         
-        <Icon name="address-card" size={30} color="#fff" />
+        <Icon name="headphones" size={30} color={tintColor} />
+      ),
+      title:'TUNNER',
+      
+    },
+  },
+  Perfil: {
+    screen: StackPerfil2,
+    navigationOptions: {
+      tabBarIcon: ({ tintColor }) => (
+        
+        <Icon name="user" size={30} color={tintColor} />
       ),
       title:'PERFIL',
 
@@ -131,11 +145,17 @@ export const RutasGenerales = createMaterialTopTabNavigator({
   tabBarPosition: 'bottom',
   swipeEnabled:true,
   tabBarOptions:{    
+    activeTintColor: 'yellow',  
     showIcon: true,
     style:{
-      backgroundColor:'#0065ff'
+      backgroundColor:'#7387f5'
     },
-    
+    tabStyle: {
+      height:49,
+    },
+    labelStyle: {
+      fontSize: 10,
+    },
   }
 },
 );

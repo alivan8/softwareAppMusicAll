@@ -44,11 +44,12 @@ export default class ListaCursos extends Component {
     };
 
     this.componentDidMount = () => {
-      fetch(`https://sismusic.herokuapp.com/api/lista/cursos`)
+      fetch(`https://sismusic.herokuapp.com/api/cursos/inscrito`)
         .then((rawResponse) => rawResponse.json()).then((response) => {
           if (response.data !== undefined) {
             /*  obtener los datos en response.cursos */
-
+            console.log('rawrepsonse: '+rawResponse.json());
+            console.log('responsedata: '+response.data);
             let cursosCargados = [];
             // Alert.alert(
             //   'Respuesta del servidor:',

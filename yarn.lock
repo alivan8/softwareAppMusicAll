@@ -5512,6 +5512,11 @@ pirates@^4.0.0, pirates@^4.0.1:
   dependencies:
     node-modules-regexp "^1.0.0"
 
+pitchfinder@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/pitchfinder/-/pitchfinder-2.1.0.tgz#51c299e21c8932420dbe5840a5037547ee4cd589"
+  integrity sha512-uoTGVkS062JngVZTgnJnRl2nfhKI+cO4UYaN6k+zlh/mICzK7e4O2BnZ43ymrRsmY+5ic5P92r72lM6JFPLUWw==
+
 pkg-dir@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/pkg-dir/-/pkg-dir-3.0.0.tgz#2749020f239ed990881b1f71210d51eb6523bea3"
@@ -5796,6 +5801,11 @@ react-native-reanimated@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/react-native-reanimated/-/react-native-reanimated-1.4.0.tgz#7f1acbf9be08492d834f512700570978052be2f9"
   integrity sha512-tO7nSNNP+iRLVbkcSS5GXyDBb7tSI02+XuRL3/S39EAr35rnvUy2JfeLUQG+fWSObJjnMVhasUDEUwlENk8IXw==
+
+react-native-recording@^0.4.1:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/react-native-recording/-/react-native-recording-0.4.1.tgz#406c5b9f6a65aabb916706c534e9f5b515276a53"
+  integrity sha512-1P5J4eEReGLXhrOhACaWLGMBJVoGZMJk+DTegiO4sdeOXpcgevE7eb/n09IyRHzUkkgN9ZvStPPU4JnGmzRJYg==
 
 react-native-router-flux@^4.0.6:
   version "4.0.6"
